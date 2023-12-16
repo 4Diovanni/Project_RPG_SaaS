@@ -7,7 +7,7 @@ function d20() {
     console.log(`Resultado: ${resultado}`);
   
     if (resultado >= 2 && resultado <= 5) {
-      console.log("Ruim doido!");
+      console.log("ta Ruim doido!");
     } else if (resultado >= 6 && resultado <= 10) {
       console.log("Ta normal maluco");
     } else if (resultado >= 11 && resultado <= 15) {
@@ -17,6 +17,6 @@ function d20() {
     } else if (resultado === 1) {
       console.log("Eu vo morre?");
     } else if (resultado === 20) {
-      console.log("OLHA O FLESHE PRETO DOIDO TA ESCURO!");
+      console.log("OLHA O FLESHE tizil DOIDO TA ESCURO!");
     }
 }
