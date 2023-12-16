@@ -20,3 +20,4 @@ function d20() {
       console.log("OLHA O FLESHE tizil DOIDO TA ESCURO!");
     }
 }
+

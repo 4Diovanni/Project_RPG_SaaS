@@ -105,11 +105,16 @@
             const nomePersonagem = dropdown.value;
 
             console.log("Personagem selecionado:", nomePersonagem);
+            const resultadoD20 = rolarD20();
             const atributos = obterAtributosDoPersonagem(nomePersonagem);
             const danoBase = calcularDanoBase(atributos);
             const danoFinal = critico(danoBase);
+            if (resultadoD20 >= 18) {
+                exibirResultadoDano(danoBase, danoFinal, multiplicadorAtaqueCritico);
+            } else if (resultadoD20 < 18) {
+                exibirResultadoDano(danoBase);
+            }
 
-            exibirResultadoDano(danoBase, danoFinal, multiplicadorAtaqueCritico);
         }
 
         function rolarD20() {
@@ -135,10 +140,13 @@
                 console.log("SAI DA FRENTE DONA MARIA!");
             } else if (resultado === 1) {
                 console.log("Eu vo morre?");
-            } else if (resultado === 20) {
-                console.log("OLHA O FLESHE tizil DOIDO TA ESCURO!");
+            } else if (resultado === 20) { //chance de tirar 20 no dado e tirar blackflash 0,001 
+                console.log("OLHA O FLESHE tizil DOIDO TA ESCURO!");//chance de conseguir black flash 0,00111111111111111111111111111111
             }
+
+            return resultado; // Adicione esta linha para retornar o resultado
         }
+
 
         function obterAtributosDoPersonagem(nomePersonagem) {
             return personagens[nomePersonagem] || {};
@@ -187,8 +195,7 @@
 
         function critico(danoBase) {
             const chancesCriticas = {
-                1.0: 0.55,
-                1.1: 0.20,
+                1.1: 0.75,
                 1.2: 0.15,
                 2.5: 0.08,
                 10: 0.02
@@ -205,15 +212,20 @@
                 }
             }
 
-            return Math.round(danoBase) * multiplicadorAtaqueCritico;
+            return multiplicadorAtaqueCritico;  // Corrigido aqui
         }
 
-        function exibirResultadoDano(danoBase, danoFinal, multiplicadorAtaqueCritico) {
+        function exibirResultadoDano(danoBase, multiplicadorAtaqueCritico, danoFinal) {
             const resultadoDanoElement = document.getElementById("resultadoDano");
-            resultadoDanoElement.innerHTML = `<p>Dano Base: ${danoBase}</p>
-                                              <p>Multiplicador do Ataque Crítico: ${multiplicadorAtaqueCritico}x</p>
-                                              <p>Dano Final: ${Math.round(danoFinal)}</p>`;
+            resultadoDanoElement.innerHTML = `<p>Dano Base: ${danoBase}</p>`;
+
+            // Verifica se houve acerto crítico
+            if (multiplicadorAtaqueCritico !== undefined && danoFinal !== undefined) {
+                resultadoDanoElement.innerHTML += `<p>Multiplicador do Ataque Crítico: ${multiplicadorAtaqueCritico}x</p>`;
+                resultadoDanoElement.innerHTML += `<p>Dano Final: ${Math.round(danoBase*multiplicadorAtaqueCritico)}</p>`;
+            }
         }
+
     </script>
 </body>
 
