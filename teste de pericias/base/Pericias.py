@@ -33,6 +33,7 @@ class Pericias:
             "Domar": 0,
             "todos": 0
         }
+        document
 
     def calcular_pericia(self):
         bonus_maximo = 50  # qual o maximo de bonus no dado do player
@@ -42,8 +43,7 @@ class Pericias:
                 self.pericias[pericia] = min(
                     round((self.sorte + self.vontade) / 15), bonus_maximo)
             elif pericia == "Sobrevivência":
-                self.pericias[pericia] = min(
-                    round((self.constituicao + self.sorte) / 12), bonus_maximo)
+                self.pericias[pericia] = min(round((self.constituicao + self.sorte) / 12), bonus_maximo)
             elif pericia == "Carisma":
                 self.pericias[pericia] = min(
                     round((self.conhecimento + self.sorte) / 10), bonus_maximo)
