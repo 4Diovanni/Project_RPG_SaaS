@@ -1,30 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seleção de Personagem</title>
+    <title>Criando Inimigos</title>
+    <style>
+        /* formalizando o ambiente */
+        .tudo {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Estilos para o jogador */
+        .player {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .layout-player {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .identificacao,
+        .informacao-usuario,
+        .vida {
+            width: 400px;
+            height: 250px;
+        }
+
+        .identificacao {
+            background-color: rgb(2, 90, 167);
+        }
+
+        .informacao-usuario {
+            background-color: rgb(103, 0, 123);
+        }
+
+        .vida {
+            background-color: darkgreen;
+            height: 50px;
+        }
+
+        .resultados {
+            width: 180px;
+            height: 120px;
+            background-color: grey;
+        }
+
+        /* Estilos para o inimigo */
+        .inimigo {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .layout-inimigo {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+        }
+
+        .atributos,
+        .resultados-status,
+        .vida {
+            width: 400px;
+            height: 250px;
+            background-color: rgb(2, 90, 167);
+        }
+
+        .atributos {
+            background-color: rgb(2, 90, 167);
+        }
+
+        .resultados-status {
+            background-color: rgb(103, 0, 123);
+        }
+
+        .vida {
+            background-color: darkgreen;
+            height: 50px;
+        }
+
+        .dano {
+            width: 180px;
+            height: 120px;
+            background-color: grey;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Escolha seu personagem:</h1>
+    <div class="tudo">
+        <div class="player">
+            <div class="layout-player">
+                <div class="info">
+                    <div class="identificacao" id="informacoesPersonagem">
+                        <label for="personagem">Selecione um personagem:</label>
+                        <select id="personagem" onchange="selecionarPersonagem()">
+                            <option value="Alisson">Alisson</option>
+                            <option value="Nall">Nall</option>
+                            <option value="Lyn">Lyn</option>
+                            <option value="Slime">Slime</option>
+                            <option value="Futsuu">Futsuu</option>
+                            <option value="Jason">Jason</option>
+                            <option value="Islime">Islime</option>
+                            <option value="Aldyr">Aldyr</option>
+                            <option value="????">????</option>
+                            <option value="Gecko">Gecko</option>
+                        </select>
+                    </div>
+                    <div class="informacao-usuario"></div>
+                    <div class="vida"></div>
+                </div>
+                <div class="resultados">
+                    <div class="dano"></div>
+                </div>
+            </div>
+        </div>
 
-    <label for="personagem">Selecione um personagem:</label>
-    <select id="personagem">
-        <option value="Alisson">Alisson</option>
-        <option value="Nall">Nall</option>
-        <option value="Lyn">Lyn</option>
-        <option value="Slime">Slime</option>
-        <option value="Futsuu">Futsuu</option>
-        <option value="Jason">Jason</option>
-        <option value="Islime">Islime</option>
-        <option value="Aldyr">Aldyr</option>
-        <option value="????">????</option>
-        <option value="Gecko">Gecko</option>
-    </select>
+        <div class="inimigo">
+            <div class="layout-inimigo">
+                <div class="info">
+                    <div class="atributos"></div>
+                    <div class="resultados-status"></div>
+                    <div class="vida"></div>
+                </div>
+                <div class="resultados">
+                    <div class="dano"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <button onclick="selecionarPersonagem()">Selecionar</button>
 
-    <div id="resultadoDano"></div>
 
     <script>
         const personagens = {
@@ -33,101 +148,31 @@
             "Lyn": { nome: "Lyn", nivel: 8, idade: 19, tipoDePoder: "magia", forca: 17, destreza: 3, constituicao: 11, vontade: 21, conhecimento: 19, fortitude: 10 },
             "Slime": { nome: "Slime", nivel: 2, idade: 9, tipoDePoder: "magia", forca: 10, destreza: 6, constituicao: 18, vontade: 2, conhecimento: 12, fortitude: 10 },
             "Futsuu": { nome: "Futsuu", nivel: 10, idade: 20, tipoDePoder: "ki", forca: 18, destreza: 22, constituicao: 26, vontade: 25, conhecimento: 35, fortitude: 25 },
-            "Jason": { nome: "Jason", nivel: 5, idade: 20, tipoDePoder: "magia", forca: 20, destreza: 17, constituicao: 3, vontade: 12, conhecimento: 15, fortitude: 10 },
+            "Jason": { nome: "Jason", nivel: 5, idade: 25, tipoDePoder: "magia", forca: 20, destreza: 17, constituicao: 3, vontade: 12, conhecimento: 15, fortitude: 10 },
             "Islime": { nome: "Islime", nivel: 2, idade: 15, tipoDePoder: "magia", forca: 2, destreza: 20, constituicao: 22, vontade: 13, conhecimento: 26, fortitude: 6 },
             "Aldyr": { nome: "Aldyr", nivel: 2, idade: 8, tipoDePoder: "magia", forca: 15, destreza: 20, constituicao: 17, vontade: 9, conhecimento: 16, fortitude: 4 },
             "????": { nome: "????", nivel: 4, idade: 21, tipoDePoder: "ki", forca: 19, destreza: 17, constituicao: 5, vontade: 1, conhecimento: 4, fortitude: 5 },
             "Gecko": { nome: "Gecko", nivel: 5, idade: 19, tipoDePoder: "magia", forca: 20, destreza: 7, constituicao: 15, vontade: 4, conhecimento: 17, fortitude: 17 },
         };
 
-        let multiplicadorAtaqueCritico; // Variável global para armazenar o multiplicador
-
         function selecionarPersonagem() {
             const dropdown = document.getElementById("personagem");
             const nomePersonagem = dropdown.value;
+            const informacoesPersonagemElement = document.getElementById("informacoesPersonagem");
 
-            console.log("Personagem selecionado:", nomePersonagem);
-            const atributos = obterAtributosDoPersonagem(nomePersonagem);
-            const danoBase = calcularDanoBase(atributos);
-            const danoFinal = critico(danoBase);
+            const atributosOriginais = personagens[nomePersonagem];
 
-            exibirResultadoDano(danoBase, danoFinal, multiplicadorAtaqueCritico);
-        }
-
-        function obterAtributosDoPersonagem(nomePersonagem) {
-            return personagens[nomePersonagem] || {};
-        }
-
-        function calcularDanoBase(personagem) {
-            const { idade, nivel, vontade, forca, destreza, tipoDePoder } = personagem;
-
-            const baseMultiplier = 0.6;
-            let danoBase = (vontade + forca + destreza) * (1 + Math.floor(nivel / 10) * baseMultiplier);
-
-            if (idade < 15) { // nerf do guilherme
-                let reducaoPorcentagem = 5 * (15 - idade);
-                let fatorReducao = 1 - reducaoPorcentagem / 100;
-                danoBase *= fatorReducao;
+            if (atributosOriginais) {
+                informacoesPersonagemElement.innerHTML = `
+                    <h2>${nomePersonagem}</h2>
+                    <p>Nível: ${atributosOriginais.nivel}</p>
+                    <p>Idade: ${atributosOriginais.idade}</p>
+                    <p>Tipo de Poder: ${atributosOriginais.tipoDePoder}</p>
+                    <!-- Adicione mais informações conforme necessário -->
+                `;
             }
-
-            if (idade === 0) {
-                danoBase = 1;
-            }
-
-            // Fatores específicos para cada tipo de poder
-            if (tipoDePoder === "ki") {
-                danoBase *= calcularModificadorKi(personagem);
-            }
-            if (tipoDePoder === "magia") {
-                danoBase *= calcularModificadorMagia(personagem);
-            }
-
-            return Math.round(danoBase);
-        }
-
-        function calcularModificadorKi(personagem) {
-        // Usuário de Ki: Acréscimo de 35% no dano de Ki e Redução de 48% no dano Mágico
-        const reducaoMagia = 0.52;
-        const aumentoKi = 1.35;
-        return (personagem.tipoDePoder === "ki") ? aumentoKi : (reducaoMagia || 1);
-    }
-    
-        function calcularModificadorMagia(personagem) {
-        // Usuário de Magia: Redução de 48% no dano de Ki e Acréscimo de 40% no dano Mágico
-        const reducaoKi = 0.52;
-        const aumentoMagia = 1.4;
-        return (personagem.tipoDePoder === "magia") ? aumentoMagia : (reducaoKi || 1);
-    }
-
-        function critico(danoBase) {
-            const chancesCriticas = {
-                1.0: 0.55,
-                1.1: 0.20,
-                1.2: 0.15,
-                2.5: 0.08,
-                10: 0.02
-            };
-
-            const resultadoRoleta = Math.random();
-            let acumulador = 0;
-
-            for (const [multiplicador, chance] of Object.entries(chancesCriticas)) {
-                acumulador += chance;
-                if (resultadoRoleta <= acumulador) {
-                    multiplicadorAtaqueCritico = parseFloat(multiplicador);
-                    break;
-                }
-            }
-
-            return Math.round(danoBase) * multiplicadorAtaqueCritico;
-        }
-
-        function exibirResultadoDano(danoBase, danoFinal, multiplicadorAtaqueCritico) {
-            const resultadoDanoElement = document.getElementById("resultadoDano");
-            resultadoDanoElement.innerHTML = `<p>Dano Base: ${danoBase}</p>
-                                              <p>Multiplicador do Ataque Crítico: ${multiplicadorAtaqueCritico}x</p>
-                                              <p>Dano Final: ${Math.round(danoFinal)}</p>`;
         }
     </script>
 </body>
+
 </html>

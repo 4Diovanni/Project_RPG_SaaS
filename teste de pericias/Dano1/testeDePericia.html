@@ -1,0 +1,279 @@
+<!-- TESTE DE PERICIAS
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Perícias</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #resultadoDado {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4caf50;
+            border-radius: 4px;
+        }
+
+        .coluna {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Criando um formulário simples para a escolha do personagem e da perícia -->
+    <form id="calculadoraPericias">
+        <h1>Teste de pericias</h1>
+        <!-- Menu de seleção de personagens -->
+        <label for="personagem">Escolha um personagem:</label>
+        <select id="personagem">
+            <option value="Alisson">Alisson</option>
+            <option value="Nall">Nall</option>
+            <option value="Lyn">Lyn</option>
+            <option value="Slime">Slime</option>
+            <option value="Futsuu">Futsuu</option>
+            <option value="Jason">Jason</option>
+            <option value="Islime">Islime</option>
+            <option value="Aldyr">Aldyr</option>
+            <option value="????">????</option>
+            <option value="Gecko">Gecko</option>
+        </select>
+        <br>
+
+        <!-- Menu de seleção de perícias -->
+        <label for="pericia">Escolha uma perícia:</label>
+        <select id="pericia">
+            <option value="Intuição">Intuição</option>
+            <option value="Sobrevivência">Sobrevivência</option>
+            <option value="Carisma">Carisma</option>
+            <option value="Aprendizado">Aprendizado</option>
+            <option value="Arcanismo">Arcanismo</option>
+            <option value="Intimidação">Intimidação</option>
+            <option value="Natureza">Natureza</option>
+            <option value="Percepção">Percepção</option>
+            <option value="Persuasão">Persuasão</option>
+            <option value="Religião">Religião</option>
+            <option value="Furtividade">Furtividade</option>
+            <option value="Iniciativa">Iniciativa</option>
+            <option value="Adestrar">Adestrar</option>
+            <option value="Acrobacias">Acrobacias</option>
+            <option value="Inteligência">Inteligência</option>
+            <option value="Domar">Domar</option>
+            
+        </select>
+        <br>
+        <button type="button" onclick="calcularBonus()">Calcular Bônus</button>
+    </form>
+
+    <!-- Div para exibir o resultado -->
+
+    <div id="resultado"></div>
+    <div id="resultadoDado"></div>
+    <script>
+        function calcularBonus() {
+            // Rolar o D20 e exibir resultado
+            const resultadoD20 = rolarD20();
+
+            // Obter valores selecionados
+            const escolhaPersonagem = document.getElementById("personagem").value;
+            const escolhaPericia = document.getElementById("pericia").value;
+
+            // Dados do personagem
+            const personagens = {
+                "Alisson": { nome: "Alisson", nivel: 20, idade: 25, tipoDePoder: "ki", forca: 45, destreza: 22, constituicao: 40, vontade: 12, conhecimento: 21, fortitude: 25, sorte: 9, velocidade: 30, defesa: 35 },
+                "Nall": { nome: "Nall", nivel: 19, idade: 23, tipoDePoder: "ki", forca: 33, destreza: 31, constituicao: 28, vontade: 15, conhecimento: 34, fortitude: 16, sorte: 20, velocidade: 17, defesa: 32 },
+                "Lyn": { nome: "Lyn", nivel: 8, idade: 19, tipoDePoder: "magia", forca: 17, destreza: 3, constituicao: 11, vontade: 21, conhecimento: 19, fortitude: 10, sorte: 4, velocidade: 11, defesa: 12 },
+                "Slime": { nome: "Slime", nivel: 2, idade: 9, tipoDePoder: "magia", forca: 10, destreza: 6, constituicao: 18, vontade: 2, conhecimento: 12, fortitude: 10, sorte: 19, velocidade: 1, defesa: 14 },
+                "Futsuu": { nome: "Futsuu", nivel: 10, idade: 20, tipoDePoder: "ki", forca: 18, destreza: 22, constituicao: 26, vontade: 25, conhecimento: 35, fortitude: 25, sorte: 30, velocidade: 20, defesa: 40 },
+                "Jason": { nome: "Jason", nivel: 5, idade: 25, tipoDePoder: "magia", forca: 20, destreza: 17, constituicao: 3, vontade: 12, conhecimento: 15, fortitude: 10, sorte: 17, velocidade: 3, defesa: 15 },
+                "Islime": { nome: "Islime", nivel: 2, idade: 14, tipoDePoder: "magia", forca: 2, destreza: 20, constituicao: 22, vontade: 13, conhecimento: 26, fortitude: 6, sorte: 15, velocidade: 6, defesa: 18 },
+                "Aldyr": { nome: "Aldyr", nivel: 2, idade: 8, tipoDePoder: "magia", forca: 15, destreza: 20, constituicao: 17, vontade: 9, conhecimento: 16, fortitude: 4, sorte: 1, velocidade: 8, defesa: 20 },
+                "????": { nome: "????", nivel: 4, idade: 21, tipoDePoder: "ki", forca: 19, destreza: 17, constituicao: 5, vontade: 1, conhecimento: 4, fortitude: 5, sorte: 11, velocidade: 11, defesa: 7 },
+                "Gecko": { nome: "Gecko", nivel: 5, idade: 19, tipoDePoder: "magia", forca: 20, destreza: 7, constituicao: 15, vontade: 4, conhecimento: 17, fortitude: 17, sorte: 4, velocidade: 6, defesa: 5 },
+            };
+
+            // Calcular bônus da perícia
+            const personagemEscolhido = personagens[escolhaPersonagem];
+            let bonusPericiaEscolhida = '';
+
+            if (escolhaPericia === "todos") {
+                bonusPericiaEscolhida = calcularTodosOsBônus(personagemEscolhido);
+                // Não mostrar nada em resultadoDado se escolhaPericia for "todos"
+                const resultadoDadoDiv = document.getElementById("resultadoDado");
+                resultadoDadoDiv.innerHTML = '';
+            } else {
+                bonusPericiaEscolhida = calcularPericia(personagemEscolhido, escolhaPericia);
+            }
+
+            // Exibir resultado do dado e da perícia
+            const resultadoDadoDiv = document.getElementById("resultadoDado");
+            const resultadoTotal = resultadoD20 + bonusPericiaEscolhida;
+            resultadoDadoDiv.innerHTML = `<p>Resultado do D20: ${resultadoD20}</p>
+                              <p>Bônus da Perícia: ${bonusPericiaEscolhida}</p>
+                              <p>Resultado com Perícia: ${resultadoTotal}</p>`;
+
+            // Exibir resultado da perícia
+            const resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = `<p>Personagem: ${escolhaPersonagem}</p>
+                          <p>Perícia escolhida: ${escolhaPericia}</p>
+                          `;
+            // Exibir bônus de todas as perícias
+            const bonusTodasPericiasDiv = document.createElement("div");
+            bonusTodasPericiasDiv.innerHTML = calcularTodosOsBônus(personagemEscolhido);
+            resultadoDadoDiv.appendChild(bonusTodasPericiasDiv);
+        }
+
+            function calcularTodosOsBônus(personagem) {
+                let resultado = '<p><strong>Bônus de Todas as Perícias:</strong></p>';
+
+                // Lista de todas as perícias
+                const pericias = ["Intuição", "Sobrevivência", "Carisma", "Aprendizado", "Arcanismo", "Intimidação",
+                    "Natureza", "Percepção", "Persuasão", "Religião", "Furtividade", "Iniciativa",
+                    "Adestrar", "Acrobacias", "Inteligência", "Domar"];
+
+                // Adiciona quebras de linha a cada quatro perícias
+                let colunaIndex = 0;
+                for (const pericia of pericias) {
+                    if (colunaIndex % 4 === 0 && colunaIndex !== 0) {
+                        resultado += '<br>';
+                    }
+                    const bonus = calcularPericia(personagem, pericia);
+                    resultado += `<span class="coluna">${pericia}: ${bonus}</span>`;
+                    colunaIndex++;
+                }
+
+                return resultado;
+            }
+
+            function rolarD20() {
+                const resultadoDadoElement = document.getElementById("resultadoDado");
+                resultadoDadoElement.innerHTML = ""; // Limpa o resultado anterior
+
+                console.log("Simulação de um dado de 20 lados (D20)"); // simula o texto do dado d20
+
+                const resultado = Math.floor(Math.random() * 20) + 1;
+
+                console.log(`Resultado: ${resultado}`);
+
+                // Mostra o resultado na tela
+                resultadoDadoElement.innerHTML = `<p>Resultado do D20: ${resultado}</p>`;
+
+                if (resultado >= 2 && resultado <= 5) {
+                    console.log("ta Ruim doido!");
+                } else if (resultado >= 6 && resultado <= 10) {
+                    console.log("Ta normal maluco");
+                } else if (resultado >= 11 && resultado <= 15) {
+                    console.log("Ta muito massa doido!");
+                } else if (resultado >= 16 && resultado <= 19) {
+                    console.log("SAI DA FRENTE DONA MARIA!");
+                } else if (resultado === 1) {
+                    console.log("Eu vo morre?");
+                } else if (resultado === 20) { //chance de tirar 20 no dado e tirar blackflash 0,001 
+                    console.log("OLHA O FLESHE tizil DOIDO TA ESCURO!"); //chance de conseguir black flash 0,00111111111111111111111111111111
+                }
+
+                return resultado; // Adicione esta linha para retornar o resultado
+            }
+
+            function calcularPericia(personagem, pericia) {
+                const bonusMaximo = 50;
+                const bonusBase = personagem[pericia.toLowerCase()] || 0;
+
+                if (pericia === "Intuição") {
+                    return Math.min(Math.round((personagem.sorte + personagem.vontade) / 15), bonusMaximo);
+                } else if (pericia === "Sobrevivência") {
+                    return Math.min(Math.round((personagem.constituicao + personagem.sorte) / 12), bonusMaximo);
+                } else if (pericia === "Carisma") {
+                    return Math.min(Math.round((personagem.conhecimento + personagem.sorte) / 10), bonusMaximo);
+                } else if (pericia === "Aprendizado") {
+                    return Math.min(Math.round((personagem.conhecimento + personagem.fortitude) / 12), bonusMaximo);
+                } else if (pericia === "Arcanismo") {
+                    return Math.min(Math.round((personagem.conhecimento + personagem.fortitude) / 15), bonusMaximo);
+                } else if (pericia === "Intimidação") {
+                    return Math.min(Math.round((personagem.forca + personagem.vontade) / 18), bonusMaximo);
+                } else if (pericia === "Natureza") {
+                    return Math.min(Math.round((personagem.conhecimento + personagem.sorte) / 15), bonusMaximo);
+                } else if (pericia === "Percepção") {
+                    return Math.min(Math.round((calcularPericia(personagem, "Intuição") + personagem.vontade) / 12), bonusMaximo);
+                } else if (pericia === "Persuasão") {
+                    return Math.min(Math.round((calcularPericia(personagem, "Carisma") + personagem.sorte) / 15), bonusMaximo);
+                } else if (pericia === "Religião") {
+                    return Math.min(Math.round((personagem.conhecimento + personagem.vontade) / 18), bonusMaximo);
+                } else if (pericia === "Furtividade") {
+                    return Math.min(Math.round((calcularPericia(personagem, "Acrobacias", personagem.destreza, calcularPericia(personagem, "Aprendizado", personagem.conhecimento, personagem.fortitude), personagem.fortitude) + personagem.velocidade) / 12), bonusMaximo);
+                } else if (pericia === "Iniciativa") {
+                    return Math.min(Math.round((personagem.sorte + personagem.velocidade) / 14), bonusMaximo);
+                } else if (pericia === "Adestrar") {
+                    return Math.min(Math.round((personagem.destreza + calcularPericia(personagem, "Aprendizado", personagem.conhecimento, personagem.fortitude)) / 8), bonusMaximo);
+                } else if (pericia === "Acrobacias") {
+                    return Math.min(Math.round((personagem.destreza + personagem.velocidade) / 12), bonusMaximo);
+                } else if (pericia === "Inteligência") {
+                    return Math.min(Math.round((personagem.conhecimento + personagem.vontade) / 18), bonusMaximo);
+                } else if (pericia === "Domar") {
+                    return Math.min(Math.round((calcularPericia(personagem, "Adestrar", personagem.conhecimento, personagem.defesa)) / 8) + 1, bonusMaximo);
+                } else {
+                    return "Perícia inválida";
+                }
+            }
+    </script>
+</body>
+
+</html>

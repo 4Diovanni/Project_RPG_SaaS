@@ -1,0 +1,232 @@
+<!-- Código HTML para ataque 1.1 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Personagem</title>
+    <link rel="stylesheet" href="./css.css">
+    <style>
+        /* Adicione o código CSS aqui */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin-left: 100px;
+            padding: 0;
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        h1 {
+            color: #333;
+        }
+    
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+    
+        button {
+            cursor: pointer;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    
+        button:hover {
+            background-color: #45a049;
+        }
+    
+        #resultadoDado, #resultadoDano {
+            margin-top: 20px;
+        }
+    
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Escolha seu personagem:</h1>
+
+    <label for="personagem">Selecione um personagem:</label>
+    <select id="personagem">
+        <option value="Alisson">Alisson</option>
+        <option value="Nall">Nall</option>
+        <option value="Lyn">Lyn</option>
+        <option value="Slime">Slime</option>
+        <option value="Futsuu">Futsuu</option>
+        <option value="Jason">Jason</option>
+        <option value="Islime">Islime</option>
+        <option value="Aldyr">Aldyr</option>
+        <option value="????">????</option>
+        <option value="Gecko">Gecko</option>
+    </select>
+
+    <button onclick="selecionarPersonagem()">Selecionar</button>
+    <button onclick="rolarD20()">Rolar D20</button>
+
+    <div id="resultadoDado"></div>
+    <div id="resultadoDano"></div>
+
+    <script>
+        const personagens = {
+                "Alisson": { nome: "Alisson", nivel: 20, idade: 25, tipoDePoder: "ki", forca: 45, destreza: 22, constituicao: 40, vontade: 12, conhecimento: 21, fortitude: 25, sorte: 9, velocidade:30, defesa:35},
+                "Nall": { nome: "Nall", nivel: 19, idade: 23, tipoDePoder: "ki", forca: 33, destreza: 31, constituicao: 28, vontade: 15, conhecimento: 34, fortitude: 16, sorte: 20, velocidade:17, defesa:32 },
+                "Lyn": { nome: "Lyn", nivel: 8, idade: 19, tipoDePoder: "magia", forca: 17, destreza: 3, constituicao: 11, vontade: 21, conhecimento: 19, fortitude: 10, sorte: 4,velocidade:11, defesa:12 },
+                "Slime": { nome: "Slime", nivel: 2, idade: 9, tipoDePoder: "magia", forca: 10, destreza: 6, constituicao: 18, vontade: 2, conhecimento: 12, fortitude: 10, sorte: 19,velocidade:1, defesa:14 },
+                "Futsuu": { nome: "Futsuu", nivel: 10, idade: 20, tipoDePoder: "ki", forca: 18, destreza: 22, constituicao: 26, vontade: 25, conhecimento: 35, fortitude: 25, sorte: 30,velocidade:20, defesa:40 },
+                "Jason": { nome: "Jason", nivel: 5, idade: 25, tipoDePoder: "magia", forca: 20, destreza: 17, constituicao: 3, vontade: 12, conhecimento: 15, fortitude: 10, sorte: 17,velocidade:3, defesa:15 },
+                "Islime": { nome: "Islime", nivel: 2, idade: 14, tipoDePoder: "magia", forca: 2, destreza: 20, constituicao: 22, vontade: 13, conhecimento: 26, fortitude: 6, sorte: 15,velocidade:6, defesa:18 },
+                "Aldyr": { nome: "Aldyr", nivel: 2, idade: 8, tipoDePoder: "magia", forca: 15, destreza: 20, constituicao: 17, vontade: 9, conhecimento: 16, fortitude: 4, sorte: 1,velocidade:8, defesa:20 },
+                "????": { nome: "????", nivel: 4, idade: 21, tipoDePoder: "ki", forca: 19, destreza: 17, constituicao: 5, vontade: 1, conhecimento: 4, fortitude: 5, sorte: 11,velocidade:11, defesa:7},
+                "Gecko": { nome: "Gecko", nivel: 5, idade: 19, tipoDePoder: "magia", forca: 20, destreza: 7, constituicao: 15, vontade: 4, conhecimento: 17, fortitude: 17, sorte: 4,velocidade:6, defesa:5},
+            };
+
+        let multiplicadorAtaqueCritico; // Variável global para armazenar o multiplicador
+
+        function selecionarPersonagem() {
+            const dropdown = document.getElementById("personagem");
+            const nomePersonagem = dropdown.value;
+
+            console.log("Personagem selecionado:", nomePersonagem);
+            const resultadoD20 = rolarD20();
+            const atributos = obterAtributosDoPersonagem(nomePersonagem);
+            const danoBase = calcularDanoBase(atributos);
+            const danoFinal = critico(danoBase);
+            if (resultadoD20 >= 18) {
+                exibirResultadoDano(danoBase, danoFinal, multiplicadorAtaqueCritico);
+            } else if (resultadoD20 < 18) {
+                exibirResultadoDano(danoBase);
+            }
+
+        }
+
+        function rolarD20() {
+            const resultadoDadoElement = document.getElementById("resultadoDado");
+            resultadoDadoElement.innerHTML = ""; // Limpa o resultado anterior
+
+            console.log("Simulação de um dado de 20 lados (D20)");// simula o texto do dado d20
+
+            const resultado = Math.floor(Math.random() * 20) + 1;
+
+            console.log(`Resultado: ${resultado}`);
+
+            // Mostra o resultado na tela
+            resultadoDadoElement.innerHTML = `<p>Resultado do D20: ${resultado}</p>`;
+
+            if (resultado >= 2 && resultado <= 5) {
+                console.log("ta Ruim doido!");
+            } else if (resultado >= 6 && resultado <= 10) {
+                console.log("Ta normal maluco");
+            } else if (resultado >= 11 && resultado <= 15) {
+                console.log("Ta muito massa doido!");
+            } else if (resultado >= 16 && resultado <= 19) {
+                console.log("SAI DA FRENTE DONA MARIA!");
+            } else if (resultado === 1) {
+                console.log("Eu vo morre?");
+            } else if (resultado === 20) { //chance de tirar 20 no dado e tirar blackflash 0,001 
+                console.log("OLHA O FLESHE tizil DOIDO TA ESCURO!");//chance de conseguir black flash 0,00111111111111111111111111111111
+            }
+
+            return resultado; // Adicione esta linha para retornar o resultado
+        }
+
+
+        function obterAtributosDoPersonagem(nomePersonagem) {
+            return personagens[nomePersonagem] || {};
+        }
+
+        function calcularDanoBase(personagem) {
+            const { idade, nivel, vontade, forca, destreza, tipoDePoder } = personagem;
+
+            const baseMultiplier = 0.6;
+            let danoBase = (vontade + forca + destreza) * (1 + Math.floor(nivel / 10) * baseMultiplier);
+
+            if (idade < 15) { // nerf do guilherme hehehe
+                let reducaoPorcentagem = 5 * (15 - idade);
+                let fatorReducao = 1 - reducaoPorcentagem / 100;
+                danoBase *= fatorReducao;
+            }
+
+            if (idade === 0) {
+                danoBase = 1;
+            }
+
+            // Fatores específicos para cada tipo de poder
+            if (tipoDePoder === "ki") {
+                danoBase *= calcularModificadorKi(personagem);
+            }
+            if (tipoDePoder === "magia") {
+                danoBase *= calcularModificadorMagia(personagem);
+            }
+
+            return Math.round(danoBase);
+        }
+
+        function calcularModificadorKi(personagem) {
+            // Usuário de Ki: Acréscimo de 35% no dano de Ki e Redução de 48% no dano Mágico
+            const reducaoMagia = 0.52;
+            const aumentoKi = 1.35;
+            return (personagem.tipoDePoder === "ki") ? aumentoKi : (reducaoMagia || 1);
+        }
+
+        function calcularModificadorMagia(personagem) {
+            // Usuário de Magia: Redução de 48% no dano de Ki e Acréscimo de 40% no dano Mágico
+            const reducaoKi = 0.52;
+            const aumentoMagia = 1.4;
+            return (personagem.tipoDePoder === "magia") ? aumentoMagia : (reducaoKi || 1);
+        }
+
+        function critico(danoBase) {
+            const chancesCriticas = {
+                1.1: 0.75,
+                1.2: 0.15,
+                2.5: 0.08,
+                10: 0.02
+            };
+
+            const resultadoRoleta = Math.random();
+            let acumulador = 0;
+
+            for (const [multiplicador, chance] of Object.entries(chancesCriticas)) {
+                acumulador += chance;
+                if (resultadoRoleta <= acumulador) {
+                    multiplicadorAtaqueCritico = parseFloat(multiplicador);
+                    break;
+                }
+            }
+
+            return multiplicadorAtaqueCritico;  // Corrigido aqui
+        }
+
+        function exibirResultadoDano(danoBase, multiplicadorAtaqueCritico, danoFinal) {
+            const resultadoDanoElement = document.getElementById("resultadoDano");
+            resultadoDanoElement.innerHTML = `<p>Dano Base: ${danoBase}</p>`;
+
+            // Verifica se houve acerto crítico
+            if (multiplicadorAtaqueCritico !== undefined && danoFinal !== undefined) {
+                resultadoDanoElement.innerHTML += `<p>Multiplicador do Ataque Crítico: ${multiplicadorAtaqueCritico}x</p>`;
+                resultadoDanoElement.innerHTML += `<p>Dano Final: ${Math.round(danoBase*multiplicadorAtaqueCritico)}</p>`;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

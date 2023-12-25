@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criando Inimigos</title>
+    <style>
+        /* formalizando o ambiente */
+        .tudo {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Estilos para o jogador */
+        .player {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .layout-player {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .identificacao,
+        .informacao-usuario,
+        .vida {
+            width: 400px;
+            height: 250px;
+        }
+
+        .identificacao {
+            background-color: rgb(2, 90, 167);
+        }
+
+        .informacao-usuario {
+            background-color: rgb(103, 0, 123);
+        }
+
+        .vida {
+            background-color: darkgreen;
+            height: 50px;
+        }
+
+        .resultados {
+            width: 180px;
+            height: 120px;
+            background-color: grey;
+        }
+
+        /* Estilos para o inimigo */
+        .inimigo {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .layout-inimigo {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+        }
+
+        .atributos,
+        .resultados-status,
+        .vida {
+            width: 400px;
+            height: 250px;
+            background-color: rgb(2, 90, 167);
+        }
+
+        .atributos {
+            background-color: rgb(2, 90, 167);
+        }
+
+        .resultados-status {
+            background-color: rgb(103, 0, 123);
+        }
+
+        .vida {
+            background-color: darkgreen;
+            height: 50px;
+        }
+
+        .dano {
+            width: 180px;
+            height: 120px;
+            background-color: grey;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tudo">
+        <div class="player">
+            <div class="layout-player">
+                <div class="info">
+                    <div class="identificacao"></div>
+                    <div class="informacao-usuario"></div>
+                    <div class="vida"></div>
+                </div>
+                <div class="resultados">
+                    <div class="dano"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="inimigo">
+            <div class="layout-inimigo">
+                <div class="info">
+                    <div class="atributos"></div>
+                    <div class="resultados-status"></div>
+                    <div class="vida"></div>
+                </div>
+                <div class="resultados">
+                    <div class="dano"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
