@@ -1,0 +1,18 @@
+.titulo-centralizar{
+  display: flex;
+  justify-content: center;
+  background-color: rgb(27, 27, 27);
+}
+
+.layout-ambos{
+  display: flex;
+  justify-content: space-between;
+}
+
+.fundo-layout {
+  position: relative;
+  background-image: url('./Design\ sem\ nome\ \(8\).png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
