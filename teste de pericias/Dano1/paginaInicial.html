@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tudo {
+            display: flex;
+            background-color: blue;
+            flex-direction: column;
+        }
+
+        .navBar {
+            display: flex;
+            background-color: red;
+            width: auto;
+            align-items: center;
+            height: 70px;
+        }
+
+        .painels {
+            display: flex;
+            background-color: green;
+            width: auto;
+            height: 600px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        /* sobre o site */
+        .painels-layout-1 {
+            display: flex;
+            background-color: crimson;
+            width: 1200px;
+            height: 200px;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .about-site {
+            width: 450px;
+            height: 200px;
+            background-color: blueviolet;
+        }
+
+        .image-site {
+            width: 250px;
+            height: 200px;
+            background-color: rgb(58, 42, 74);
+        }
+
+        /* sobre o rpg */
+        .painels-layout-2 {
+            display: flex;
+            background-color: grey;
+            width: 1200px;
+            height: 200px;
+            align-items: center;
+            flex-direction: row-reverse;
+        }
+
+        .rpg-history {
+            width: 450px;
+            height: 200px;
+            background-color: rgb(43, 76, 226);
+        }
+
+        .image-history {
+            width: 250px;
+            height: 200px;
+            background-color: rgb(25, 44, 130);
+        }
+
+        /* sobre a vitrine */
+        .vitrine {
+            display: flex;
+            background-color: yellow;
+            width: auto;
+            height: 350px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly
+        }
+
+        .personagens {
+            width: 170px;
+            height: 200px;
+            background-color: thistle;
+        }
+
+        .poderes {
+            width: 170px;
+            height: 200px;
+            background-color: rgb(147, 130, 147);
+        }
+
+        .armas {
+            width: 170px;
+            height: 200px;
+            background-color: rgb(93, 82, 93);
+        }
+
+        /* sobre magia e ki */
+        .ki-e-magia {
+            display: flex;
+            background-color: orange;
+            width: auto;
+            height: 590px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ki-image {
+            width: 400px;
+            height: 400px;
+            background-color: yellowgreen;
+        }
+
+        .about-ki-e-magia {
+            width: 420px;
+            height: 235px;
+            background-color: rgb(53, 53, 53);
+        }
+
+        .magia-image {
+            width: 400px;
+            height: 400px;
+            background-color: cyan;
+        }
+
+        /* centralizar tudo */
+        .centralizar-conteudo {
+            display: flex;
+            flex-direction: column;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tudo">
+
+
+        <div class="navBar">
+
+        </div>
+        <div class="centralizar-conteudo">
+            <div class="painels">
+
+                <div class="painels-layout-1">
+                    <div class="image-site"></div>
+                    <div class="about-site"></div>
+
+                </div>
+
+                <div class="painels-layout-2">
+                    <div class="image-history"></div>
+                    <div class="rpg-history"></div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="vitrine">
+            <div class="personagens"></div>
+            <div class="poderes"></div>
+            <div class="armas"></div>
+        </div>
+
+        <div class="ki-e-magia">
+            <div class="ki-image"></div>
+            <div class="about-ki-e-magia"></div>
+            <div class="magia-image"></div>
+        </div>
+
+        <div class="footer">
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<!-- //
+    <style>
+        .tudo{
+            display: flex;
+            background-color: blue;
+        }
+        .navBar{
+            display: flex;
+            background-color: red;
+        }
+        .painels{
+            display: flex;
+            background-color: green;
+        }
+        .painels-layout-1{
+            display: flex;
+            background-color: crimson;
+        }
+        .painels-layout-2{
+            display: flex;
+            background-color: grey;;
+        }
+        .vitrine{
+            display: flex;
+            background-color: yellow
+        }
+        .ki-e-magia{
+            display: flex;
+            background-color: orange
+        }
+    </style>
+</head>
+
+<body>
+
+    <div className="tudo">
+
+        <div className="navBar">
+            
+        </div>
+
+        <div className="painels">
+
+            <div className="painels-layout-1">
+                <div className="about-site"></div>
+                <div className="image-site"></div>
+            </div>
+
+            <div className="painels-layout-2">
+                <div className="rpg-history"></div>
+                <div className="image-history"></div>
+            </div>
+
+        </div>
+
+        <div className="vitrine">
+            <div className="personagens"></div>
+            <div className="poderes"></div>
+            <div className="armas"></div>
+        </div>
+
+        <div className="ki-e-magia">
+            <div className="ki-image"></div>
+            <div className="about-ki-e-magia"></div>
+            <div className="magia-image"></div>
+        </div>
+
+        <div className="footer">
+
+        </div>
+
+
+
+
+    </div>
+
+</body> -->
