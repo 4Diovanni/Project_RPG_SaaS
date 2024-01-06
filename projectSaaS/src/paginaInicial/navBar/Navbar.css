@@ -1,0 +1,68 @@
+.barra-de-navegação{
+    display: flex;
+    background-color: rgb(178, 178, 178);
+    width: auto;
+    align-items: center;
+    height: 70px;
+    justify-content: center;
+    justify-content: space-around;
+}
+.Layout-NavBar{
+    display: flex;
+}
+.logo-image{
+    width: 120px;
+    height: 90px;
+}
+.paginaInicial{
+    display: flex;
+    width: 100px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+.explore{
+    display: flex;
+    width: 100px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+.mecanicas{
+    display: flex;
+    width: 100px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+.locais{
+    display: flex;
+    width: 100px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+.comunidade{
+    display: flex;
+    width: 100px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+.login-register{
+    display: flex;
+}
+.register{
+    display: flex;
+    width: 100px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+.login{
+    display: flex;
+    width: 100px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
