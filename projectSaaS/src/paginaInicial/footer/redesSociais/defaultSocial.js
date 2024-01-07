@@ -13,7 +13,7 @@ function SocialIcons() {
                 </a>
             </div>
             <div className="instagram">
-                <a href="https://www.flaticon.com/free-icons/instagram-logo" title="instagram logo icons">
+                <a href="https://www.instagram.com/4dio.g4/" title="instagram logo icons">
                     <img className='icon' src={Instagram} alt="Instagram Icon" />
                 </a>
             </div>

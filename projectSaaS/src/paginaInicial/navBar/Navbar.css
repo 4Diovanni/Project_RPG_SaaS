@@ -1,65 +1,84 @@
-.barra-de-navegação{
+.barra-de-navegacao {
     display: flex;
     background-color: rgb(178, 178, 178);
     width: auto;
     align-items: center;
     height: 70px;
-    justify-content: center;
+    padding: 0 20px;
     justify-content: space-around;
 }
-.Layout-NavBar{
+
+.Layout-NavBar {
     display: flex;
+    align-items: center;
+    width: 600px;
+    justify-content: space-around;
 }
-.logo-image{
+
+.logo-image {
     width: 120px;
     height: 90px;
 }
-.paginaInicial{
-    display: flex;
-    width: 100px;
+
+.explore,
+.mecanicas,
+.locais,
+.comunidade {
     height: 40px;
-    align-items: center;
-    justify-content: center;
+    position: relative;
 }
-.explore{
+
+.explore,
+.mecanicas,
+.locais,
+.comunidade {
     display: flex;
-    width: 100px;
-    height: 40px;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
+    width: 90px;
+    background-color: rgba(124, 194, 255, 0.618);
 }
-.mecanicas{
+
+.dropdown {
+    background-color: rgb(173, 217, 255);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 100%; /* Posiciona o dropdown no meio verticalmente */
+    left: 50%; /* Posiciona o dropdown no meio horizontalmente */
+    transform: translate(-50%, 0); /* Move o dropdown de volta 50% da sua própria largura */
+    width: 140px;
+}
+
+.dropdown ul {
     display: flex;
-    width: 100px;
-    height: 40px;
     align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
 }
-.locais{
+
+.dropdown ul li {
+    margin: 5px 0;
+}
+
+.paginaInicial:hover .dropdown,
+.explore:hover .dropdown,
+.mecanicas:hover .dropdown,
+.locais:hover .dropdown,
+.comunidade:hover .dropdown {
+    opacity: 1;
+}
+
+.login-register {
     display: flex;
-    width: 100px;
-    height: 40px;
     align-items: center;
-    justify-content: center;
 }
-.comunidade{
-    display: flex;
-    width: 100px;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-}
-.login-register{
-    display: flex;
-}
-.register{
-    display: flex;
-    width: 100px;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-}
-.login{
+
+.register,
+.login {
     display: flex;
     width: 100px;
     height: 40px;
