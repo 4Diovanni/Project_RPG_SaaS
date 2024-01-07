@@ -1,4 +1,4 @@
-<h1 align="center">Bem-vindo ao Repositório do Projeto: Sagaz de SaaS!</h1>
+<h1 align="center">Bem-vindo ao Repositório do Projeto: Cronicas de SaaS!</h1>
 
 <h3 align="center">Olá, eu sou Giovanni Moreira, e estou desenvolvendo sistemas para o meu RPG, explorando as maravilhas do JavaScript e aprimorando minhas habilidades ao longo do caminho.</h3>
 
