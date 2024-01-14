@@ -1,0 +1,25 @@
+Feito no DBDiagram, dia 13/01/2024 as 22:25pm.
+
+Table users {
+  id int [pk]
+  username varchar [not null]
+  nickname varchar
+  email varchar [not null]
+  password varchar [not null]
+  phone varchar
+  image_url_user varchar [not null]
+  created_at timestamp [default: `current_timestamp`]
+  updated_at timestamp
+}
+
+Table vitrine_posts {
+  id int [pk]
+  user_id int [ref: > users.id] 
+  category varchar [not null]
+  title varchar [not null]
+  image_url_vitrine varchar [not null]
+  description text
+  created_at timestamp [default: `current_timestamp`]
+  updated_at timestamp
+}
+
