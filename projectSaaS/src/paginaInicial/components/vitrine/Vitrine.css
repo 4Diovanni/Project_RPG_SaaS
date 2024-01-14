@@ -3,7 +3,7 @@
     display: flex;
     background-color: yellow;
     width: auto;
-    height: 350px;
+    height: 650px;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly

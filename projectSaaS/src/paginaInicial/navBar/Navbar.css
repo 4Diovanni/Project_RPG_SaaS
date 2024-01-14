@@ -26,12 +26,6 @@
 .comunidade {
     height: 40px;
     position: relative;
-}
-
-.explore,
-.mecanicas,
-.locais,
-.comunidade {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -40,7 +34,16 @@
     background-color: rgba(124, 194, 255, 0.618);
 }
 
+.explore:hover,
+.mecanicas:hover,
+.locais:hover,
+.comunidade:hover {
+    background-color: rgba(124, 194, 255, 0.8); /* Cor mais clara no hover */
+     /* Adiciona o cursor apenas nas guias principais */
+}
+
 .dropdown {
+    
     background-color: rgb(173, 217, 255);
     z-index: 1;
     opacity: 0;
@@ -58,10 +61,32 @@
     flex-direction: column;
     list-style: none;
     padding: 0;
+    margin: 0; /* Adicione esta linha para remover a margem padrão da lista */
 }
 
 .dropdown ul li {
+    text-align: center;
+    height: 32px;
+    width: 120px;
     margin: 5px 0;
+    cursor: pointer; /* Adicione esta linha para adicionar o cursor pointer nas opções */
+    transition: background-color 0.3s ease; /* Adicione esta linha para suavizar a transição da cor de fundo */
+}
+
+/* Adiciona um estilo para a opção selecionada */
+.dropdown ul li.selected {
+    background-color: rgb(42, 73, 99);
+}
+
+/* Adiciona hover nas opções do dropdown */
+.dropdown ul li:hover {
+    background-color: rgba(124, 194, 255, 0.8);
+}
+
+/* Adiciona um pequeno atraso ao hover no dropdown */
+.dropdown:hover {
+    opacity: 1;
+    transition-delay: 0.1s;
 }
 
 .paginaInicial:hover .dropdown,
@@ -70,6 +95,7 @@
 .locais:hover .dropdown,
 .comunidade:hover .dropdown {
     opacity: 1;
+    transition-delay: 0.1s;
 }
 
 .login-register {

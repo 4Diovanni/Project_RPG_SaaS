@@ -23,7 +23,7 @@ function NavBar() {
             </div>
             <div className='Layout-NavBar'>
                 {/* Adiciona eventos de hover às guias */}
-                <div className='paginaInicial' onMouseEnter={handleLeave}>
+                <div className='paginaInicial'>
                     Página Inicial
                 </div>
 
