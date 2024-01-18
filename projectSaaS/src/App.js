@@ -1,26 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
-import NavBar from './paginaInicial/navBar/Navbar';
-import Painels from './paginaInicial/components/painels/Painel';
-import Vitrine from './paginaInicial/components/vitrine/Vitrine';
-import KieMagia from './paginaInicial/components/ki-e-magia/Ki-e-magia';
-import Footer from './paginaInicial/footer/defaultFooter';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavBar from './navBar/Navbar.js';
+import PaginaInicial from './paginaInicial/paginaInicial.js';
+// import PaginaCombate from './paginaCombate/paginaCombate.js'
+
 function App() {
   return (
-    <div>
-      <Router>
+    <Router>
+      <div>
         <div className='nav'>
           <NavBar />
         </div>
-      </Router>
-      <Painels />
-      <Vitrine />
-      <KieMagia />
-      <div className='footer'>
-        <Footer />
+
+        {/* Usando <Routes> em vez de <Route> */}
+        <Routes>
+          <Route path='/' element={<PaginaInicial />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 
