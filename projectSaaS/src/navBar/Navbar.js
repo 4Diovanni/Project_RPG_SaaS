@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Logo from './logo1.png';
 
@@ -24,7 +25,8 @@ function NavBar() {
             <div className='Layout-NavBar'>
                 {/* Adiciona eventos de hover às guias */}
                 <div className='paginaInicial'>
-                    Página Inicial
+                    
+                    <Link to='/'>Página Inicial</Link>
                 </div>
 
                 <div className='explore' onMouseEnter={handleHover} onMouseLeave={handleLeave}>
@@ -35,7 +37,7 @@ function NavBar() {
                             <ul>
                                 <li>Ficha</li>
                                 <li>Lore</li>
-                                <li>Combate</li>
+                                <li><Link to='/paginaCombate'>Combate</Link></li>
                                 <li>PatchNotes</li>
                             </ul>
                         </div>
@@ -88,7 +90,7 @@ function NavBar() {
             </div>
             <div className='login-register'>
                 <div className='register'>
-                    Registrar
+                    <Link to='/registro '>Registrar</Link>
                 </div>
                 <div className='login'>
                     Login
