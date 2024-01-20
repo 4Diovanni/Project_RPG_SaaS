@@ -1,3 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* Fonte padrão para toda a página */
+body {
+    font-family: 'K2D', sans-serif;
+}
+
 /* Layout geral da página */
 .todo-layout {
     display: flex;
@@ -8,7 +22,8 @@
 
 /* Estilo do lado esquerdo da página */
 .lado-esquerdo {
-    background-color: rgb(12, 12, 77);
+    background: rgb(9, 9, 22);
+    background: linear-gradient(90deg, rgba(9, 9, 22, 1) 35%, rgba(0, 0, 44, 1) 100%);
     display: flex;
     align-items: center;
     width: 910px;
@@ -29,8 +44,8 @@
 /* Estilo da imagem do logo e logoRegistro */
 .logo-image,
 .logoRegistro {
-    width: auto;
-    height: 160px;
+    width: 230px;
+    height: 170px;
 }
 
 /* Estilo do layout dos elementos sol, lua e eclipse */
@@ -43,43 +58,60 @@
 
 /* Estilo da imagem e elemento sol e lua */
 .sun-image,
-.sun, .moon-image,
+.sun,
+.moon-image,
 .moon {
-    width: 290px;
-    height: 140px;
+    width: 270px;
+    height: 120px;
+}
+
+.logoRegistro img {
+    filter: drop-shadow(0px 4px 20px rgba(255, 0, 0, 0.60));
+}
+
+.sun img {
+    filter: drop-shadow(0px 4px 20px rgba(255, 255, 0, 0.8));
+}
+
+.moon img {
+    filter: drop-shadow(0px 4px 20px rgba(0, 229, 255, 0.8));
+}
+
+.eclipse img {
+    filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.5));
 }
 
 /* Estilo da imagem e elemento eclipse */
-.eclipse-image,
-.eclipse {
-    width: 230px;
-    height: 210px;
+.eclipse-image {
+    width: 210px;
+    height: 190px;
 }
 
-.descricao-registro{
+/* Descrição no lado esquerdo */
+.descricao-registro {
     padding: 12px;
 }
 
-/* Estilo da descrição no lado esquerdo */
 .texto-titulo-registro {
     color: white;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
+
 .linha {
     width: 210px;
     height: 2px;
     background-color: white;
-    margin: 20px; /* Ajuste conforme necessário */
-  }
+    margin: 20px;
+    /* Ajuste conforme necessário */
+}
 
-/* Estilo da descrição no lado esquerdo */
 .texto-descricao-ladoEsquerdo {
     color: white;
 }
 
-/* Estilo do formulário de registro */
+/* Formulário de registro */
 .registrar {
     display: flex;
     background-color: #0D0D0D;
@@ -88,15 +120,14 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    justify-content: space-around;
 }
 
-/* Estilo das etiquetas do formulário */
 .registrar label {
     color: white;
     margin-bottom: 5px;
 }
 
-/* Estilo dos campos de entrada do formulário */
 .registrar input {
     padding: 10px;
     margin-bottom: 15px;
@@ -105,33 +136,94 @@
     width: 240px;
     height: 30px;
     background-color: #232323;
+    color: white;
 }
 
-/* Estilo do botão de registro */
+.registrar ::placeholder {
+    color: white;
+    font-size: 14px;
+    opacity: 50%;
+}
+
 .registrar button {
-    background-color: #4caf50;
+    background-color: #1291ab;
     color: white;
     padding: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 40px;
     cursor: pointer;
     width: 270px;
     height: 60px;
 }
 
-/* Estilo do botão de registro ao passar o mouse */
 .registrar button:hover {
-    background-color: #45a049;
+    background-color: #0F798E;
 }
 
-/* Estilo do layout do formulário */
-.layout-forms {
+/* Redes Sociais */
+.rede-sociais-layout {
+    display: flex;
+}
+
+.facebook-button,
+.google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 10px;
+    border-radius: 40px;
+    cursor: pointer;
+    width: 130px;
+    height: 30px;
+    margin: 6px;
+}
+
+.facebook-button {
+    border: 2px solid #0F3F7D;
+    background-color: #4495FF;
+}
+
+.facebook-button:hover {
+    transition: 0.3s ease;
+    background-color: #418aeb;
+}
+
+.google-button {
+    background-color: #E8EDF1;
+    border: 2px solid #A0A0A0;
+}
+
+.google-button:hover {
+    transition: 0.3s ease;
+    background-color: #d7dbe0;
+}
+
+.google-image,
+.facebook-image {
+    width: 30px;
+    height: 30px;
+}
+
+/* Layout do formulário */
+.layout-forms,
+.layout-botao,
+.rede-sociais {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
 }
 
-/* Estilo de seções específicas do formulário (usuário, senha, etc.) */
+.paragrafo-rede-sociais,
+.paragrafo-botao-esquecer,
+.link-botao-esquecer a {
+    color: white;
+    font-size: small;
+    text-decoration: none;
+}
+
+/* Seções específicas do formulário */
 .user,
 .confirmPassword,
 .password,

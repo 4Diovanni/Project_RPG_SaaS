@@ -4,7 +4,10 @@ import Sun from '../sun.png';
 import Moon from '../moon.png';
 import Eclipse from '../eclipse.png';
 import Logo from '../Logo2.png';
+import Google from '../google.png';
+import Facebook from '../facebook.png';
 import './Registro.css';
+
 
 const Registro = () => {
   const [userName, setUserName] = useState('');
@@ -32,10 +35,10 @@ const Registro = () => {
             <div className='eclipse'>
               <img className='eclipse-image' src={Eclipse} alt='Eclipse Saas' />
             </div>
+
             <div className='moon'>
               <img className='moon-image' src={Moon} alt='Moon Saas' />
             </div>
-            {/* ... imagens do sol, lua e eclipse ... */}
           </div>
         </div>
         <div className='descricao-registro'>
@@ -49,18 +52,31 @@ const Registro = () => {
       </div>
 
       <div className='registrar'>
-        <h2 className='texto-titulo-registro'>
+        <h1 className='texto-titulo-registro'>
           Sing In
           <div className='linha'></div>
-        </h2>
+        </h1>
         <form onSubmit={handleSubmit} className='layout-forms'>
-          <FormField label='Nome de Usuário:' type='user' placeholder='User Name' value={userName} onChange={setUserName} />
-          <FormField label='E-mail:' type='email' placeholder='E-mail' value={email} onChange={setEmail} />
-          <FormField label='Senha:' type='password' placeholder='Password' value={password} onChange={setPassword} />
-          <FormField label='Confirmar Senha:' type='password' placeholder='Confirm Password' value={confirmPassword} onChange={setConfirmPassword} />
-          <div className='linha'></div>
-          <button type='submit' className='botao'>Registrar</button>
+          <FormField label='' type='user' placeholder='User Name' value={userName} onChange={setUserName} />
+          <FormField label='' type='email' placeholder='E-mail' value={email} onChange={setEmail} />
+          <FormField label='' type='password' placeholder='Password' value={password} onChange={setPassword} />
+          <FormField label='' type='password' placeholder='Confirm Password' value={confirmPassword} onChange={setConfirmPassword} />
+          <div className='layout-botao'>
+            <button type='submit' className='botao'>Registrar</button>
+            <div className='link-botao-esquecer'><Link to='/'><p className='paragrafo-botao-esquecer'> Esqueceu a senha?</p></Link></div>
+
+          </div>
+          <div className='rede-sociais'>
+            <div><p className='paragrafo-rede-sociais'>você pode se conectar também com</p></div>
+            <div className='rede-sociais-layout'>
+              <div className='google-button'><img className='google-image' src={Google} alt='Google Icon' /></div>
+              <div className='facebook-button'><img className='facebook-image' src={Facebook} alt='Facebook Icon' /></div>
+            </div>
+            <div className='linha'></div>
+          </div>
+
         </form>
+        
       </div>
     </div>
   );
@@ -82,3 +98,5 @@ const FormField = ({ label, type, placeholder, value, onChange }) => (
 );
 
 export default Registro;
+
+
