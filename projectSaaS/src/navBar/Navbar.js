@@ -20,7 +20,7 @@ function NavBar() {
     return (
         <div className='barra-de-navegacao'>
             <div className='logo'>
-                <img className='logo-image' src={Logo} alt='Logo Saas' />
+                <img className='logo-image-inicial' src={Logo} alt='Logo Saas' />
             </div>
             <div className='Layout-NavBar'>
                 {/* Adiciona eventos de hover às guias */}
