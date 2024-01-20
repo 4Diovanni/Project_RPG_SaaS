@@ -1,0 +1,19 @@
+// 
+{/* <div className='fundo-layout'>
+  <div className='titulo-centralizar'>
+    <Titulo />
+  </div>
+
+  <div className='layout-ambos'>
+    <div className='layout-esquerdo'>
+      <LadoEsquerdo />
+    </div>
+    <div className='layout-direito'>
+      <LadoDireito />
+    </div>
+  </div>
+
+  <div className='footer'>
+    <Footer />
+  </div>
+</div> */}

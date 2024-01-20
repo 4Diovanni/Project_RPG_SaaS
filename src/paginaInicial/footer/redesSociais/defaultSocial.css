@@ -1,0 +1,12 @@
+.all-icons{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.icon {
+    display: flex;
+    width: 45px;
+    height: 45px;
+    margin: 10px;
+}

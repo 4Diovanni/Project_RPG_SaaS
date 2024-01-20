@@ -1,0 +1,13 @@
+.footer-lightSkin{
+    background-color: rgb(27, 27, 27);
+    width: auto;
+    height: 140px;
+}
+.layout-footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.p{
+    color: white;
+}

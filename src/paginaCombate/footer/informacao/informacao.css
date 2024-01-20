@@ -1,0 +1,10 @@
+.letra-color{
+    color: white;
+}
+
+.letra-centralizar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
