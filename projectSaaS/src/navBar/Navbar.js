@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import Logo from './logo1.png';
+import Logo from './logo2-removebg-preview.png';
 
 function NavBar() {
     // Estado para controlar a exibição do dropdown
@@ -35,10 +35,10 @@ function NavBar() {
                     {showDropdown && (
                         <div className='dropdown'>
                             <ul>
-                                <li>Ficha</li>
-                                <li>Lore</li>
+                                <li><Link to='/'>Ficha</Link></li>
+                                <li><Link to='/'>Lore</Link></li>
                                 <li><Link to='/paginaCombate'>Combate</Link></li>
-                                <li>PatchNotes</li>
+                                <li><Link to='/'>PatchNotes</Link></li>
                             </ul>
                         </div>
                     )}
@@ -50,10 +50,10 @@ function NavBar() {
                     {showDropdown && (
                         <div className='dropdown'>
                             <ul>
-                                <li>Poderes</li>
-                                <li>Armas</li>
-                                <li>Reliquias</li>
-                                <li>Eventos</li>
+                                <li><Link to='/'>Poderes</Link></li>
+                                <li><Link to='/'>Armas</Link></li>
+                                <li><Link to='/'>Reliquias</Link></li>
+                                <li><Link to='/'>Eventos</Link></li>
                             </ul>
                         </div>
                     )}
@@ -64,10 +64,10 @@ function NavBar() {
                     {showDropdown && (
                         <div className='dropdown'>
                             <ul>
-                                <li>Paises</li>
-                                <li>Continentes</li>
-                                <li>Biomas</li>
-                                <li>Mapa Mundi</li>
+                                <li><Link to='/'>Paises</Link></li>
+                                <li><Link to='/'>Continentes</Link></li>
+                                <li><Link to='/'>Biomas</Link></li>
+                                <li><Link to='/'>Mapa Mundi</Link></li>
                             </ul>
                         </div>
                     )}
@@ -78,11 +78,11 @@ function NavBar() {
                     {showDropdown && (
                         <div className='dropdown'>
                             <ul>
-                                <li>Players</li>
-                                <li>FAQ</li>
-                                <li>Guia</li>
-                                <li>Mestre&Jogador</li>
-                                <li>Discord</li>
+                                <li><Link to='/'>Players</Link></li>
+                                <li><Link to='/'>FAQ</Link></li>
+                                <li><Link to='/'>Guia</Link></li>
+                                <li><Link to='/'>Mestre&Jogador</Link></li>
+                                <li><Link to='/'>Discord</Link></li>
                             </ul>
                         </div>
                     )}
@@ -93,7 +93,7 @@ function NavBar() {
                     <Link to='/registro '>Registrar</Link>
                 </div>
                 <div className='login'>
-                    Login
+                    <Link to='/ '>Login</Link>
                 </div>
             </div>
         </div>

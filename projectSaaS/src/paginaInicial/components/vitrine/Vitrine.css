@@ -1,28 +1,135 @@
 /* sobre a vitrine */
-.vitrine {
+
+.vitrine-layout {
     display: flex;
-    background-color: yellow;
-    width: auto;
-    height: 650px;
-    flex-direction: row;
+    justify-content: center;
+    /* Centraliza horizontalmente */
     align-items: center;
-    justify-content: space-evenly
 }
 
-.personagens {
-    width: 170px;
-    height: 200px;
+.layout-vitrine {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    height: 650px;
+    flex-direction: column;
+}
+
+.personagem {
+    display: flex;
+    width: 210px;
+    height: 240px;
     background-color: thistle;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-image: url(./xiao.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    border-radius: 20px;
+    border: 2px solid black;
 }
 
-.poderes {
-    width: 170px;
-    height: 200px;
-    background-color: rgb(147, 130, 147);
+.titulo-personagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 210px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.463);
+    color: white;
+    font-weight: 500;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.reliquias {
+    display: flex;
+    width: 210px;
+    height: 240px;
+    background-color: thistle;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-image: url(./reliquias.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+.titulo-reliquias {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 210px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.463);
+    color: white;
+    font-weight: 500;
+    border-radius: 0px 0px 20px 20px;
 }
 
 .armas {
-    width: 170px;
-    height: 200px;
-    background-color: rgb(93, 82, 93);
+    display: flex;
+    width: 210px;
+    height: 240px;
+    background-color: thistle;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-image: url(./armas.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+.titulo-armas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 210px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.463);
+    color: white;
+    font-weight: 500;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.linha-vitrine {
+
+    width: 660px;
+    height: 2px;
+    background-color: rgb(0, 0, 0);
+    margin: 20px;
+    /* Ajuste conforme necessário */
+}
+
+/* Estilos para o carrossel */
+.slick-slider {
+    width: 65%;
+    margin: 0 auto;
+}
+
+.slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Botões de navegação esquerda e direita */
+.slick-prev,
+.slick-next {
+    border-radius: 50px;
+    background-color: #2e2e2e;
+    /* Cor padrão dos botões */
+    color: #fff;
+    /* Cor do ícone (seta) */
+}
+
+.slick-prev:hover,
+.slick-next:hover,
+.slick-prev:focus,
+.slick-next:focus {
+    border-radius: 50px;
+    background-color: #1e93e2;
+    /* Cor ao passar o mouse ou ao clicar */
 }

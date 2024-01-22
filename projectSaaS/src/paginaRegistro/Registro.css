@@ -97,6 +97,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    font-size: 25px;
 }
 
 .linha {
@@ -122,6 +123,8 @@ body {
     padding: 20px;
     justify-content: space-around;
 }
+
+
 
 .registrar label {
     color: white;
@@ -152,7 +155,7 @@ body {
     border: none;
     border-radius: 40px;
     cursor: pointer;
-    width: 270px;
+    width: 300px;
     height: 60px;
 }
 
@@ -182,20 +185,22 @@ body {
 .facebook-button {
     border: 2px solid #0F3F7D;
     background-color: #4495FF;
+    transition: 0.3s ease;
 }
 
 .facebook-button:hover {
-    transition: 0.3s ease;
+    
     background-color: #418aeb;
 }
 
 .google-button {
-    background-color: #E8EDF1;
+    background-color: #ffffff;
     border: 2px solid #A0A0A0;
+    transition: 0.3s ease;
 }
 
 .google-button:hover {
-    transition: 0.3s ease;
+    
     background-color: #d7dbe0;
 }
 
@@ -212,7 +217,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 7px;
 }
 
 .paragrafo-rede-sociais,
