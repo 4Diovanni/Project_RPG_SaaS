@@ -1,27 +1,87 @@
 /* sobre magia e ki */
 .ki-e-magia {
     display: flex;
-    background-color: orange;
+    background: linear-gradient(90deg, #0C3277 0%, #956000 100%);
     width: auto;
-    height: 590px;
+    height: 110vh;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
-.ki-image {
-    width: 400px;
-    height: 400px;
-    background-color: yellowgreen;
+.ki-image,
+.magia-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+    flex-direction: column;
+
+
+}
+
+
+.ki-image:hover .sun-KM,
+.magia-image:hover .moon-KM {
+    transform: scale(1.2);
+    transition: 0.4s ease-in-out;
+    /* Aumenta a escala (zoom) da imagem ao passar o mouse */
+}
+
+.sun-KM:hover {
+    filter: drop-shadow(0px 4px 20px rgb(255, 221, 0));
+}
+
+.moon-KM:hover {
+    filter: drop-shadow(0px 4px 20px rgb(0, 183, 255));
+}
+
+.sun-KM,
+.moon-KM {
+    max-width: 100%;
+    /* Limita a largura máxima da imagem */
+    height: auto;
+    /* Permite ajuste proporcional da altura */
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    transition: transform 0.3s ease;
+    margin: 50px;
+    /* Adiciona uma transição suave de 0.3 segundos */
+}
+
+.ki-image a,
+.magia-image a {
+    font-size: 20px; /* Ajuste conforme necessário */
+    font-weight: bold;
+    margin: 0; 
+    text-decoration: none;/* Remove margem padrão do parágrafo */
+}
+
+.ki-image a {
+    color: #FD9803; /* Cor azul para "Ki" */
+    text-shadow: -2px 0 #000000, 0 2px #000000, 2px 0 #000000, 0 -2px #000000; /* Contorno branco */
+}
+
+.magia-image a {
+    color: #0184fe; /* Cor amarela para "Magia" */
+    text-shadow: -2px 0 #000000, 0 2px #000000, 2px 0 #000000, 0 -2px #000000; /* Contorno branco */
 }
 
 .about-ki-e-magia {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 420px;
     height: 235px;
     background-color: rgb(53, 53, 53);
-}
+    color: #FFF;
+    text-align: center;
+    font-family: K2D;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 275;
+    line-height: normal;
 
-.magia-image {
-    width: 400px;
-    height: 400px;
-    background-color: cyan;
 }

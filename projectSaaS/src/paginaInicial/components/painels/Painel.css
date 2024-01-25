@@ -1,6 +1,6 @@
 .painels {
     display: flex;
-    background: linear-gradient(180deg, #0E0F1E 34.67%, #575865 63.42%, #FFF 98.38%);
+    background: linear-gradient(180deg, #0D0D0D 17.75%, #525252 51.58%, #FFF 98.38%);
     width: auto;
     height: 600px;
     flex-direction: column;
@@ -11,7 +11,7 @@
 /* sobre o site */
 .painels-layout-1 {
     display: flex;
-    background: linear-gradient(180deg, #0E0F1E 4%, rgba(14, 15, 30, 0.00) 100%);
+    background: #ffffff00;
     width: 1200px;
     height: 300px;
 
@@ -58,7 +58,7 @@
 .painels-layout-2 {
     display: flex;
     border-top: 1px solid #000;
-    background: linear-gradient(180deg, #313240 0%, #FFF 95.86%);
+    background: #ffffff00;
     width: 1200px;
     height: 300px;
 
