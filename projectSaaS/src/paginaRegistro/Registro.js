@@ -20,6 +20,8 @@ const Registro = () => {
     console.log('Valores do formulário:', { userName, email, password, confirmPassword });
   };
 
+  
+
   return (
     <div className='todo-layout'>
       <div className='lado-esquerdo'>
