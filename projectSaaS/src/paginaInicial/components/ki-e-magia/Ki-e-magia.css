@@ -1,12 +1,13 @@
 /* sobre magia e ki */
 .ki-e-magia {
     display: flex;
-    background: linear-gradient(90deg, #0C3277 0%, #956000 100%);
+    background: linear-gradient(90deg, #0C3277 0%, #F7D781 100%);
     width: auto;
     height: 110vh;
     align-items: center;
     justify-content: center;
     position: relative;
+    border-top: 1px solid #000;
 }
 
 .ki-image,
@@ -31,11 +32,11 @@
 }
 
 .sun-KM:hover {
-    filter: drop-shadow(0px 4px 20px rgb(255, 221, 0));
+    filter: drop-shadow(0px 4px 20px rgb(255, 235, 103));
 }
 
 .moon-KM:hover {
-    filter: drop-shadow(0px 4px 20px rgb(0, 183, 255));
+    filter: drop-shadow(0px 4px 20px rgb(78, 116, 255));
 }
 
 .sun-KM,
@@ -72,16 +73,19 @@
 .about-ki-e-magia {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 420px;
     height: 235px;
-    background-color: rgb(53, 53, 53);
+    background-color: #35353580;
+    align-items: center;
+    justify-content: center;
+}
+.about-ki-e-magia p{
     color: #FFF;
     text-align: center;
     font-family: K2D;
-    font-size: 16px;
+    font-size: 19px;
     font-style: italic;
     font-weight: 275;
     line-height: normal;
-
+    width: 330px;
 }

@@ -43,8 +43,9 @@ body {
 /* Estilo da imagem do logo e logoRegistro */
 .logo-image,
 .logoRegistro {
-    width: 230px;
-    height: 170px;
+    width: 250px;
+    height: 200px;
+
 }
 
 /* Estilo do layout dos elementos sol, lua e eclipse */
