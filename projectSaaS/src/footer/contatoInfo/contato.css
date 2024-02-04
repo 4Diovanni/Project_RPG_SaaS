@@ -1,0 +1,21 @@
+.text-contato{
+    color: white;
+    text-decoration: none;
+    width: 245px;
+    height: 21px;
+}
+.text-contato a{
+    color: white;
+    text-decoration: none;
+    width: 245px;
+    height: 21px;
+}
+.layout-contato{
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    width: 245px;
+    height: 90px;
+    justify-content: space-between;
+}
+

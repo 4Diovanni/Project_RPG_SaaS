@@ -1,0 +1,43 @@
+.content-resumo {
+    background-color: rgb(61, 61, 61);
+    width: 100%;
+    height: 120vh;
+}
+
+.content-title-resumo {
+    display: flex;
+    background-color: #0D0D0D;
+    width: 100%;
+    height: 12vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-title-resumo p {
+    text-align: center;
+}
+
+.layout-content-resumo {
+    background-color: darkgreen;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+.content-text {
+    background-color: greenyellow;
+    width: 40vw;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.content-text p {
+    width: 30vw;
+    height: 25vh;
+}

@@ -36,7 +36,7 @@ function NavBar() {
                         <div className='dropdown'>
                             <ul>
                                 <li><Link to='/'>Ficha</Link></li>
-                                <li><Link to='/'>Lore</Link></li>
+                                <li><Link to='/paginaLore'>Lore</Link></li>
                                 <li><Link to='/paginaCombate'>Combate</Link></li>
                                 <li><Link to='/'>PatchNotes</Link></li>
                             </ul>

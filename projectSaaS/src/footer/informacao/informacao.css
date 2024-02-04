@@ -1,0 +1,12 @@
+.letra-color{
+    color: white;
+}
+
+.letra-centralizar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 120px;
+    justify-content: space-around;
+}
+
