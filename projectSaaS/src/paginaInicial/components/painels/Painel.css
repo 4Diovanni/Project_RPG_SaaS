@@ -1,6 +1,6 @@
 .painels {
     display: flex;
-    background: linear-gradient(180deg, #0D0D0D 17.75%, #525252 51.58%, #FFF 98.38%);
+    background: #525252;
     width: auto;
     height: 600px;
     flex-direction: column;
