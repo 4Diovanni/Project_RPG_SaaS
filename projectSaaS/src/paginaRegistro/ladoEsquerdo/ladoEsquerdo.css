@@ -1,0 +1,110 @@
+/* Estilo do lado esquerdo da página */
+.lado-esquerdo {
+    background: linear-gradient(90deg, rgba(9, 9, 22, 1) 35%, rgba(0, 0, 44, 1) 100%);
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Estilo do logo e elementos associados */
+.logo-e-eclipse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 440px;
+    justify-content: space-around;
+}
+
+/* Estilo da imagem do logo e logoRegistro */
+.logo-image,
+.logoRegistro {
+    width: 250px;
+    height: 200px;
+
+}
+
+/* Estilo do layout dos elementos sol, lua e eclipse */
+.layout-sun-moon-eclipse {
+    display: flex;
+    width: auto;
+    height: auto;
+    align-items: center;
+}
+
+
+.logoRegistro img {
+    filter: drop-shadow(0px 4px 20px rgba(255, 0, 0, 0.60));
+}
+
+.loader {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    margin-left: 15px;
+}
+
+.loader span {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.loader span:nth-child(1) {
+    background-color: white;
+    backdrop-filter: blur(20px);
+    border-top: 0.25px solid rgb(255, 255, 255, 0.1);
+    border-left: 0.25px solid rgb(255, 255, 255, 0.1);
+    box-shadow: 1px 1px 40px 10px #ffffff;
+    animation: MoveUpDown 4s linear infinite;
+    z-index: 2;
+}
+
+.loader span:nth-child(2) {
+background: linear-gradient(40deg, #4361ee 10%, #2d6a4f 90%);
+    animation: animate 4s ease-in-out infinite;
+}
+
+.loader span:nth-child(3) {
+    background: radial-gradient(#fca311, #ffb703);
+    box-shadow: 0px 0px 60px 7px #ffb703;
+    animation: animate 4s ease-in-out infinite;
+    animation-delay: -0.9s;
+}
+
+@keyframes MoveUpDown {
+    0%,
+    100% {
+        bottom: 0;
+    }
+
+    50% {
+        bottom: 10px;
+    }
+}
+@keyframes animate{
+    0%{
+        transform: translate(-150px, 50px)
+        scale(0.2);
+        z-index: 1;
+
+    }
+    50%{
+        transform: translate(150px, -50px)
+        scale(0.3) rotate(360deg);
+        z-index: 1;
+    }
+    50.00001%{
+        transform: translate(150px, -50px) 
+        scale(0.3); 
+        z-index: 3;
+    }
+    100%{
+        transform: translate(-150px, 50px)
+        scale(0.2);
+        z-index: 3;
+    }
+}
