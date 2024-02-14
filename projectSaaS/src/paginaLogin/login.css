@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* Fonte padrão para toda a página */
+body {
+    font-family: 'K2D', sans-serif;
+}
+
+/* Layout geral da página */
+.todo-layout-logar {
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+}
+
+/* Descrição no lado esquerdo */
+.descricao-logar {
+    padding: 12px;
+}
+
+.button-back-login {
+    right: 200px;
+    position: relative;
+    top: -10px;
+    width: 32px;
+    height: 32px;
+}
+
+.button-back-login img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    filter: invert(100%);
+    /* Inverte as cores da imagem */
+    transition: filter 0.3s;
+    /* Adiciona uma transição suave */
+}
+
+.button-back-login:hover img {
+    filter: invert(0%);
+    /* Reverte as cores da imagem para a original */
+    filter: drop-shadow(0px 0px 2px  #ffff);
+    /* Adiciona uma borda branca ao redor da imagem */
+}
+
+.texto-titulo-logar {
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.7rem;
+}
+
+.linha {
+    width: 210px;
+    height: 2px;
+    background-color: white;
+    margin: 20px;
+    /* Ajuste conforme necessário */
+}
+
+.texto-descricao-ladoDireito {
+    color: white;
+}
+
+/* Formulário de registro */
+.logar {
+    display: flex;
+    background-color: #0D0D0D;
+    width: 50vw;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.logar label {
+    color: white;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.logar input {
+    padding: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #232323;
+    border-radius: 50px;
+    width: 20vw;
+    height: 5vh;
+    background-color: #232323;
+    color: white;
+}
+
+.logar ::placeholder {
+    color: white;
+    font-size: 14px;
+    opacity: 50%;
+}
+
+.logar button {
+    background-color: #1291ab;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    width: 20vw;
+    height: 9vh;
+}
+
+.logar button:hover {
+    background-color: #0F798E;
+}
+
+/* Redes Sociais */
+.rede-sociais-layout {
+    display: flex;
+}
+
+.facebook-button,
+.google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 7vw;
+    height: 3vh;
+    margin: 5px;
+}
+
+.facebook-button {
+    border: 2px solid #0F3F7D;
+    background-color: #4495FF;
+    transition: 0.3s ease;
+}
+
+.facebook-button:hover {
+
+    background-color: #418aeb;
+}
+
+.google-button {
+    background-color: #ffffff;
+    border: 2px solid #A0A0A0;
+    transition: 0.3s ease;
+}
+
+.google-button:hover {
+
+    background-color: #d7dbe0;
+}
+
+.google-image,
+.facebook-image {
+    width: 2vw;
+    height: 4vh;
+}
+
+/* Layout do formulário */
+.layout-forms,
+.layout-botao,
+.rede-sociais {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 7px;
+}
+
+.paragrafo-rede-sociais,
+.paragrafo-botao-esquecer,
+.link-botao-esquecer a {
+    color: white;
+    font-size: small;
+    text-decoration: none;
+}
+
+/* Seções específicas do formulário */
+.user,
+.confirmPassword,
+.password,
+.email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -7,6 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import PaginaInicial from './paginaInicial/paginaInicial.js';
 import PaginaCombate from './paginaCombate/paginaCombate.js';
 import Registrar from './paginaRegistro/Registro.js';
+import Login from './paginaLogin/login.js'
 import PaginaLore from './paginaLore/paginaLore.js';
 // import PaginaCombate from './paginaCombate/paginaCombate.js'
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='/paginaCombate' element={<PaginaCombate />} />
           <Route path='/paginaLore' element={<PaginaLore />} />
           <Route path='/registro' element={<Registrar />} />
+          <Route path='/login' element={<Login />} />
         </Routes>
       </div>
     </Router>

@@ -93,7 +93,7 @@ function NavBar() {
                     <Link to='/registro '>Registrar</Link>
                 </div>
                 <div className='login'>
-                    <Link to='/ '>Login</Link>
+                    <Link to='/login '>Login</Link>
                 </div>
             </div>
         </div>

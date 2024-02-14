@@ -1,0 +1,66 @@
+
+
+.conteiner{
+    display: flex;
+}
+
+.orb {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transition: all 1s ease;
+    /* Adicionando uma transição suave */
+     /* Adicionando position: relative; */
+}
+
+#blueOrb {
+    background-color: #0000ff;
+    left: 20%;
+    animation: opacidade 1s ;
+    filter: drop-shadow(0px 4px 20px #0000db);
+}
+
+#redOrb {
+    background-color: #ff0000;
+    right: 20%;
+    animation: opacidade 2.8s ;
+    filter: drop-shadow(0px 4px 20px #d60000);
+}
+
+@keyframes opacidade {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+.purpleOrb {
+    background-color: purple;
+    animation: aparecer 1.6s;
+    
+    /* Adicionando uma animação para a purpleOrb */
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes moveUpDown {
+    0%, 100% {
+        transform: translateY(0); /* Posição inicial */
+    }
+    50% {
+        transform: translateY(-20px); /* Posição elevada */
+    }
+}

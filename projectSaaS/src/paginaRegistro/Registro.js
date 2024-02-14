@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { auth, createUserWithEmailAndPassword } from '../firebase.js';
+import { auth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from '../firebase.js';
 import './Registro.css';
 import GoogleIcon from '../google.png';
 import FacebookIcon from '../facebook.png';
 import LadoEsquerdo from './ladoEsquerdo/ladoEsquerdo.js';
+import Retornar from './left.png';
 
 const Registro = () => {
   const navigate = useNavigate();
@@ -35,13 +36,40 @@ const Registro = () => {
     }
   }
 
+  const handleGoogleRegister = async () => {
+    try {
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      // Redirecione o usuário para a página inicial
+      navigate('/');
+    } catch (error) {
+      console.error('Erro ao registrar com o Google:', error.message);
+      alert('Erro ao registrar com o Google:', error.message);
+    }
+  }
+
+  const handleFacebookRegister = async () => {
+    try {
+      const provider = new FacebookAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      // Redirecione o usuário para a página inicial
+      navigate('/');
+    } catch (error) {
+      console.error('Erro ao registrar com o Facebook:', error.message);
+      alert('Erro ao registrar com o Facebook:', error.message);
+    }
+  }
+
   return (
-    <div className='todo-layout'>
+    <div className='todo-layout-registrar'>
       <LadoEsquerdo/>
 
       <div className='registrar'>
+        <div className='button-back-registrar'>
+          <Link to='/'><img src={Retornar} alt="Voltar" /></Link>
+        </div>
         <h1 className='texto-titulo-registro'>
-          Sing In
+          Registro
           <div className='linha'></div>
         </h1>
         <form onSubmit={handleSubmit} className='layout-forms'>
@@ -55,10 +83,10 @@ const Registro = () => {
 
           </div>
           <div className='rede-sociais'>
-            <div><p className='paragrafo-rede-sociais'>você pode se conectar também com</p></div>
+            <div><p className='paragrafo-rede-sociais'>Você também pode se registrar com:</p></div>
             <div className='rede-sociais-layout'>
-              <div className='google-button'><img className='google-image' src={GoogleIcon} alt='Google Icon' /></div>
-              <div className='facebook-button'><img className='facebook-image' src={FacebookIcon} alt='Facebook Icon' /></div>
+              <div className='google-button' onClick={handleGoogleRegister}><img className='google-image' src={GoogleIcon} alt='Google Icon' /></div>
+              <div className='facebook-button' onClick={handleFacebookRegister}><img className='facebook-image' src={FacebookIcon} alt='Facebook Icon' /></div>
             </div>
             <div className='linha'></div>
           </div>

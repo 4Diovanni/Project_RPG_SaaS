@@ -13,114 +13,36 @@ body {
 }
 
 /* Layout geral da página */
-.todo-layout {
+.todo-layout-registrar {
     display: flex;
     height: 100vh;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: row-reverse;
 }
 
-/* Estilo do lado esquerdo da página */
-.lado-esquerdo {
-    background: linear-gradient(90deg, rgba(9, 9, 22, 1) 35%, rgba(0, 0, 44, 1) 100%);
-    display: flex;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    flex-direction: column;
-    justify-content: space-between;
+.button-back-registrar {
+    right: 225px;
+    position: relative;
+    top: 55px;
+    width: 32px;
+    height: 32px;
 }
 
-/* Estilo do logo e elementos associados */
-.logo-e-eclipse {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 440px;
-    justify-content: space-around;
+.button-back-registrar img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    filter: invert(100%);
+    /* Inverte as cores da imagem */
+    transition: filter 0.3s;
+    /* Adiciona uma transição suave */
 }
 
-/* Estilo da imagem do logo e logoRegistro */
-.logo-image,
-.logoRegistro {
-    width: 250px;
-    height: 200px;
-
-}
-
-/* Estilo do layout dos elementos sol, lua e eclipse */
-.layout-sun-moon-eclipse {
-    display: flex;
-    width: auto;
-    height: auto;
-    align-items: center;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes orbit {
-    from {
-        transform: translateX(200px) rotate(0deg);
-    }
-
-    to {
-        transform: translateX(200px) rotate(360deg);
-    }
-}
-
-.sun {
-    animation: rotate 20s linear infinite;
-    /* Girar o sol em torno de seu próprio eixo */
-}
-
-.moon {
-    animation: rotate 30s linear infinite;
-    /* Girar a lua em torno de seu próprio eixo */
-}
-
-.eclipse {
-    animation: orbit 40s linear infinite;
-    /* Orbitar o eclipse em torno do centro */
-}
-
-
-/* Estilo da imagem e elemento sol e lua */
-.sun-image,
-.sun,
-.moon-image,
-.moon {
-    height: 20vh;
-    width: 10vw;
-}
-
-.logoRegistro img {
-    filter: drop-shadow(0px 4px 20px rgba(255, 0, 0, 0.60));
-}
-
-.sun img {
-    filter: drop-shadow(0px 4px 20px rgba(255, 255, 0, 0.8));
-}
-
-.moon img {
-    filter: drop-shadow(0px 4px 20px rgba(0, 229, 255, 0.8));
-}
-
-.eclipse img {
-    filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.5));
-}
-
-/* Estilo da imagem e elemento eclipse */
-.eclipse-image {
-    width: 20vw;
-    height: 40vh;
+.button-back-registrar:hover img {
+    filter: invert(0%);
+    /* Reverte as cores da imagem para a original */
+    filter: drop-shadow(0px 0px 2px #ffff);
+    /* Adiciona uma borda branca ao redor da imagem */
 }
 
 /* Descrição no lado esquerdo */
@@ -133,7 +55,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 
 .linha {
@@ -152,7 +74,7 @@ body {
 .registrar {
     display: flex;
     background-color: #0D0D0D;
-    width: 50vw;
+    width: 60vw;
     height: 100vh;
     flex-direction: column;
     align-items: center;
@@ -168,12 +90,11 @@ body {
 }
 
 .registrar input {
-    padding: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 7px;
     border: 1px solid #232323;
     border-radius: 50px;
     width: 20vw;
-    height: 5vh;
+    height: 6vh;
     background-color: #232323;
     color: white;
 }
@@ -253,7 +174,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 7px;
+    margin-top: -5px;
 }
 
 .paragrafo-rede-sociais,
