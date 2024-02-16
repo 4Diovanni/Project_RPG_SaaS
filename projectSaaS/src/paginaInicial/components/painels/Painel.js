@@ -28,7 +28,7 @@ function Painels() {
     <div className="painels">
       <AnimatedPainel className="painels-layout-1 fadeIn">
         <div className="image-site"><img className='logo-image-painel' src={Logo} alt='Logo Saas' /></div>
-        <div className="about-site"><p className='about-site-text'>“Durante um longo período, fui inundado por ideias, repleto de criações e manifestações artísticas. E por que não unir isso à programação? Apresento-lhes "As Crônicas de SaaS", o website do meu RPG e portfólio! Desejo transferir toda a minha criatividade e desenvolvimento ao longo do tempo para este site feito com dedicação.
+        <div className="about-site"><p className='about-site-text'>“durante um longo período, fui inundado por ideias, repleto de criações e manifestações artísticas. E por que não unir isso à programação? Apresento-lhes "As Crônicas de SaaS", o website do meu RPG e portfólio! Desejo transferir toda a minha criatividade e desenvolvimento ao longo do tempo para este site feito com dedicação.
           Espero que apreciem.”</p></div>
       </AnimatedPainel>
 
