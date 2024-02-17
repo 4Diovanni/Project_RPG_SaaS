@@ -27,15 +27,14 @@ const Registro = () => {
 
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            await userCredential.user.updateProfile({
-                displayName: userName
-            });
+            
             console.log('Usuário registrado com sucesso:', userCredential.user);
             navigate('/');
         } catch (error) {
             console.error('Erro ao registrar o usuário:', error.message);
             alert('Erro ao registrar o usuário:', error.message);
         }
+        
     }
 
     const handleGoogleRegister = async () => {
