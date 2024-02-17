@@ -1,3 +1,4 @@
+/* Estilos gerais */
 * {
     margin: 0;
     padding: 0;
@@ -7,23 +8,22 @@
     vertical-align: baseline;
 }
 
-/* Fonte padrão para toda a página */
 body {
     font-family: 'K2D', sans-serif;
 }
 
-/* Layout geral da página */
+/* Layout geral */
 .todo-layout-registrar {
     display: flex;
     height: 100vh;
-    justify-content: center;
     flex-direction: row-reverse;
 }
 
+/* Botão de retorno */
 .button-back-registrar {
-    right: 225px;
     position: relative;
-    top: 55px;
+    top: 40px;
+    right: 210px;
     width: 32px;
     height: 32px;
 }
@@ -33,23 +33,15 @@ body {
     height: 32px;
     cursor: pointer;
     filter: invert(100%);
-    /* Inverte as cores da imagem */
     transition: filter 0.3s;
-    /* Adiciona uma transição suave */
 }
 
 .button-back-registrar:hover img {
     filter: invert(0%);
-    /* Reverte as cores da imagem para a original */
-    filter: drop-shadow(0px 0px 2px #ffff);
-    /* Adiciona uma borda branca ao redor da imagem */
+    filter: drop-shadow(0px 0px 2px #fff);
 }
 
-/* Descrição no lado esquerdo */
-.descricao-registro {
-    padding: 12px;
-}
-
+/* Título */
 .texto-titulo-registro {
     color: white;
     display: flex;
@@ -58,31 +50,26 @@ body {
     font-size: 1.5rem;
 }
 
+/* Linha separadora */
 .linha {
     width: 210px;
     height: 2px;
     background-color: white;
     margin: 20px;
-    /* Ajuste conforme necessário */
 }
 
-.texto-descricao-ladoEsquerdo {
-    color: white;
-}
-
-/* Formulário de registro */
+/* Formulário */
 .registrar {
     display: flex;
     background-color: #0D0D0D;
-    width: 60vw;
+    width: 620px;
     height: 100vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-
-
+/* Campos e botões do formulário */
 .registrar label {
     color: white;
     margin-bottom: 5px;
@@ -90,11 +77,11 @@ body {
 }
 
 .registrar input {
-    margin-bottom: 7px;
+    margin-bottom: 8px;
     border: 1px solid #232323;
     border-radius: 50px;
-    width: 20vw;
-    height: 6vh;
+    width: 270px;
+    height: 35px;
     background-color: #232323;
     color: white;
 }
@@ -146,7 +133,6 @@ body {
 }
 
 .facebook-button:hover {
-
     background-color: #418aeb;
 }
 
@@ -157,7 +143,6 @@ body {
 }
 
 .google-button:hover {
-
     background-color: #d7dbe0;
 }
 
@@ -174,15 +159,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -5px;
-}
-
-.paragrafo-rede-sociais,
-.paragrafo-botao-esquecer,
-.link-botao-esquecer a {
-    color: white;
-    font-size: small;
-    text-decoration: none;
+    margin-top: 7px;
 }
 
 /* Seções específicas do formulário */

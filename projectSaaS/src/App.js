@@ -9,7 +9,9 @@ import PaginaCombate from './paginaCombate/paginaCombate.js';
 import Registrar from './paginaRegistro/Registro.js';
 import Login from './paginaLogin/login.js'
 import PaginaLore from './paginaLore/paginaLore.js';
-// import PaginaCombate from './paginaCombate/paginaCombate.js'
+import ConfiguracaoConta from './settingsPage/ConfiguracaoConta.js';
+
+
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
           <Route path='/paginaLore' element={<PaginaLore />} />
           <Route path='/registro' element={<Registrar />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/configuracaoConta' element={<ConfiguracaoConta />} />
         </Routes>
       </div>
     </Router>

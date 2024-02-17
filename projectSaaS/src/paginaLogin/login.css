@@ -1,3 +1,4 @@
+/* Estilos gerais */
 * {
     margin: 0;
     padding: 0;
@@ -7,27 +8,21 @@
     vertical-align: baseline;
 }
 
-/* Fonte padrão para toda a página */
 body {
     font-family: 'K2D', sans-serif;
 }
 
-/* Layout geral da página */
+/* Layout geral */
 .todo-layout-logar {
     display: flex;
     height: 100vh;
-    flex-direction: row;
 }
 
-/* Descrição no lado esquerdo */
-.descricao-logar {
-    padding: 12px;
-}
-
+/* Botão de retorno */
 .button-back-login {
-    right: 200px;
     position: relative;
-    top: -10px;
+    top: -26px;
+    right: 210px;
     width: 32px;
     height: 32px;
 }
@@ -37,18 +32,15 @@ body {
     height: 32px;
     cursor: pointer;
     filter: invert(100%);
-    /* Inverte as cores da imagem */
     transition: filter 0.3s;
-    /* Adiciona uma transição suave */
 }
 
 .button-back-login:hover img {
     filter: invert(0%);
-    /* Reverte as cores da imagem para a original */
-    filter: drop-shadow(0px 0px 2px  #ffff);
-    /* Adiciona uma borda branca ao redor da imagem */
+    filter: drop-shadow(0px 0px 2px #ffff);
 }
 
+/* Título */
 .texto-titulo-logar {
     color: white;
     display: flex;
@@ -57,31 +49,26 @@ body {
     font-size: 1.7rem;
 }
 
+/* Linha separadora */
 .linha {
     width: 210px;
     height: 2px;
     background-color: white;
     margin: 20px;
-    /* Ajuste conforme necessário */
 }
 
-.texto-descricao-ladoDireito {
-    color: white;
-}
-
-/* Formulário de registro */
+/* Formulário */
 .logar {
     display: flex;
     background-color: #0D0D0D;
-    width: 70vw;
+    width: 620px;
     height: 100vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-
-
+/* Campos e botões do formulário */
 .logar label {
     color: white;
     margin-bottom: 5px;
@@ -89,12 +76,11 @@ body {
 }
 
 .logar input {
-    padding: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     border: 1px solid #232323;
     border-radius: 50px;
-    width: 20vw;
-    height: 5vh;
+    width: 270px;
+    height: 35px;
     background-color: #232323;
     color: white;
 }
@@ -146,7 +132,6 @@ body {
 }
 
 .facebook-button:hover {
-
     background-color: #418aeb;
 }
 
@@ -157,7 +142,6 @@ body {
 }
 
 .google-button:hover {
-
     background-color: #d7dbe0;
 }
 
@@ -177,14 +161,6 @@ body {
     margin-top: 7px;
 }
 
-.paragrafo-rede-sociais,
-.paragrafo-botao-esquecer,
-.link-botao-esquecer a {
-    color: white;
-    font-size: small;
-    text-decoration: none;
-}
-
 /* Seções específicas do formulário */
 .user,
 .confirmPassword,
@@ -193,4 +169,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.registro-link{
+    color: white;
+}
+
+.login-link{
+    color: white;
 }

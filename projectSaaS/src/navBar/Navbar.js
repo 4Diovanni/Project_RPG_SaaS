@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import Logo from './logo2-removebg-preview.png';
+import UsuarioFoto from '../user.png'
 
 function NavBar() {
     // Estado para controlar a exibição do dropdown
@@ -19,14 +19,12 @@ function NavBar() {
 
     return (
         <div className='barra-de-navegacao'>
-            <div className='logo'>
-                <img className='logo-image-inicial' src={Logo} alt='Logo Saas' />
-            </div>
+            
             <div className='Layout-NavBar'>
                 {/* Adiciona eventos de hover às guias */}
                 <div className='paginaInicial'>
                     
-                    <Link to='/'>Página Inicial</Link>
+                    <Link to='/configuracaoConta'>Página Inicial</Link>
                 </div>
 
                 <div className='explore' onMouseEnter={handleHover} onMouseLeave={handleLeave}>
@@ -89,11 +87,8 @@ function NavBar() {
                 </div>
             </div>
             <div className='login-register'>
-                <div className='register'>
-                    <Link to='/registro '>Registrar</Link>
-                </div>
                 <div className='login'>
-                    <Link to='/login '>Login</Link>
+                    <Link to='/login '><img src={UsuarioFoto} alt='user-foto'></img></Link>
                 </div>
             </div>
         </div>
