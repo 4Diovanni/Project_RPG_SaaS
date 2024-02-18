@@ -7,10 +7,7 @@ function ladoEsquerdo() {
     return (
         <div className='lado-esquerdo'>
             <div className='logo-e-eclipse'>
-                <div className='logoRegistro'>
-                    <Link to='/'><img className='logo-image' src={Logo} alt='Logo Saas' /> </Link>
-                </div>
-
+                
                 <div className='loader'>
                     <span></span>
                     <span></span>

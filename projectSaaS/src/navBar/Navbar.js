@@ -24,7 +24,7 @@ function NavBar() {
                 {/* Adiciona eventos de hover às guias */}
                 <div className='paginaInicial'>
                     
-                    <Link to='/configuracaoConta'>Página Inicial</Link>
+                    <Link to='/perfil'>Página Inicial</Link>
                 </div>
 
                 <div className='explore' onMouseEnter={handleHover} onMouseLeave={handleLeave}>

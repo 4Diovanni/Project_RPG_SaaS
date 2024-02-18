@@ -9,7 +9,8 @@ import PaginaCombate from './paginaCombate/paginaCombate.js';
 import Registrar from './paginaRegistro/Registro.js';
 import Login from './paginaLogin/login.js'
 import PaginaLore from './paginaLore/paginaLore.js';
-import ConfiguracaoConta from './settingsPage/ConfiguracaoConta.js';
+import PaginaPerfil from './paginaPerfil/paginaPerfil.js';
+import ConfigPerfil from './paginaPerfil/configAccount/config.js';
 
 
 
@@ -26,7 +27,8 @@ function App() {
           <Route path='/paginaLore' element={<PaginaLore />} />
           <Route path='/registro' element={<Registrar />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/configuracaoConta' element={<ConfiguracaoConta />} />
+          <Route path='/perfil' element={<PaginaPerfil />} />
+          <Route path='/configPerfil' element={<ConfigPerfil />} />
         </Routes>
       </div>
     </Router>

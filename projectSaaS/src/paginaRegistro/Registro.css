@@ -14,9 +14,7 @@ body {
 
 /* Layout geral */
 .todo-layout-registrar {
-    display: flex;
-    height: 100vh;
-    flex-direction: row-reverse;
+    
 }
 
 /* Botão de retorno */
@@ -170,4 +168,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.content-left-register{
+    display: flex;
+    height: 100vh;
+    flex-direction: row-reverse;
 }

@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    font-family: 'K2D', sans-serif;
+}
+
+.layout-rightSide {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    background-color: burlywood;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.layout-info-rightSide {
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-textInfo {
+    display: flex;
+    flex-direction: row;
+    width: 325px;
+    height: 100px;
+    align-items: center;
+    background-color: coral;
+    justify-content: center;
+}
+
+.text-name,
+.text-email,
+.text-password {
+    width: 60px;
+    height: auto;
+}
+
+.layout-btn-deleteElogout{
+    display: flex;
+    flex-direction: rox;
+
+}
+
+.btn-delete, .btn-logout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 40px;
+    background-color: blueviolet;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 50px;
+}
