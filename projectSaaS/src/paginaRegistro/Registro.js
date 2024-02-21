@@ -8,8 +8,9 @@ import FacebookIcon from '../facebook.png';
 import LadoEsquerdo from './ladoEsquerdo/ladoEsquerdo.js';
 import Retornar from './left.png';
 import Footer from '../footer/defaultFooter.js';
+import { ref, set } from 'firebase/database';
 
-const { auth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } = Firebase;
+const { auth, database, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } = Firebase;
 
 const Registro = () => {
     const navigate = useNavigate();
@@ -26,16 +27,39 @@ const Registro = () => {
             return;
         }
 
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Usuário registrado e autenticado
+                const userData = {
+                    userName: userName,
+                    email: email,
+                };
+                set(ref(database, 'users/' + userCredential.user.uid), userData);
+                console.log('Usuário registrado com data:', userData);
+                const userId = userCredential.user.uid; // O UID (userId) do usuário
+                console.log("Usuário criado com sucesso com ID:", userId);
+                //navigate('/'); // Redireciona o usuário para a página inicial ou dashboard após o registro
+            })
+            .catch((error) => {
+                console.error('Erro ao registrar o usuário:', error.message);
+                alert('Erro ao registrar o usuário: ' + error.message);
+            });
 
-            console.log('Usuário registrado com sucesso:', userCredential.user);
-            navigate('/');
-        } catch (error) {
-            console.error('Erro ao registrar o usuário:', error.message);
-            alert('Erro ao registrar o usuário:', error.message);
-        }
-
+        // try {
+        //     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        //     const userData = {
+        //         userName: userName,
+        //         email: email,
+        //         // Remova a linha da senha para evitar armazenar a senha em texto puro
+        //     };
+        //     await set(ref(database, 'users/' + userCredential.user.uid), userData);
+        //     console.log('Usuário registrado com data:', userData);
+        //     console.log('Usuário registrado com sucesso:', userCredential.user);
+        //     navigate('/'); // Redireciona o usuário para a página inicial ou dashboard após o registro
+        // } catch (error) {
+        //     console.error('Erro ao registrar o usuário:', error.message);
+        //     alert('Erro ao registrar o usuário:', error.message);
+        // }
     }
 
     const handleGoogleRegister = async () => {
