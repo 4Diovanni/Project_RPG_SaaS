@@ -6,11 +6,11 @@ import UserDefaultImg from './userDefault.png';
 import Firebase from '../../../firebase.js';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
-import { ref as databaseRef, set, getDatabase } from "firebase/database";
+import { ref as databaseRef, set, get, getDatabase } from "firebase/database";
 
 function LeftSide() {
     const [file, setFile] = useState(null);
-    const [profileImageUrl, setProfileImageUrl] = useState(UserDefaultImg); // Imagem padrão inicialmente
+    const [profileImageUrl, setProfileImageUrl] = useState(UserDefaultImg);
     const [userId, setUserId] = useState(null); // Armazena o userId
 
     // Configurar listener para mudanças no estado de autenticação
@@ -18,14 +18,29 @@ function LeftSide() {
         const auth = getAuth();
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                setUserId(user.uid); // Atualiza o userId com o ID do usuário autenticado
-                // Aqui você também pode buscar a imagem de perfil atual do usuário no banco de dados
+                setUserId(user.uid);
+                // Buscar a imagem de perfil atual do usuário
+                fetchUserProfileImage(user.uid);
             } else {
-                // Usuário não está logado ou a sessão foi encerrada
                 setUserId(null);
+                setProfileImageUrl(UserDefaultImg); // Reseta para a imagem padrão se não estiver logado
             }
         });
     }, []);
+
+    const fetchUserProfileImage = (userId) => {
+        const db = getDatabase();
+        const userProfileRef = databaseRef(db, `users/${userId}/profileImageUrl`);
+        get(userProfileRef).then((snapshot) => {
+            if (snapshot.exists()) {
+                setProfileImageUrl(snapshot.val());
+            } else {
+                setProfileImageUrl(UserDefaultImg); // Caso não haja imagem, usa a padrão
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
+    };
 
     const handleImageChange = (e) => {
         if (e.target.files[0]) {
