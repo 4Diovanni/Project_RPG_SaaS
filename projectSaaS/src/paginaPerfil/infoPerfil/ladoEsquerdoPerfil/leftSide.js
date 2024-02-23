@@ -8,11 +8,12 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
 import { ref as databaseRef, set, get, getDatabase } from "firebase/database";
 
+
 function LeftSide() {
     const [file, setFile] = useState(null);
     const [profileImageUrl, setProfileImageUrl] = useState(UserDefaultImg);
     const [userId, setUserId] = useState(null); // Armazena o userId
-
+   
     // Configurar listener para mudanças no estado de autenticação
     useEffect(() => {
         const auth = getAuth();

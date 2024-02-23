@@ -1,9 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Firebase from '../firebase.js';
+import { onAuthStateChanged } from 'firebase/auth';
+import { ref, onValue } from 'firebase/database';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import UsuarioFoto from '../user.png'
 
+const {auth, database}= Firebase
+
 function NavBar() {
+    const [profileImageUrl, setProfileImageUrl] = useState('');
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const profileImageRef = ref(database, 'users/' + user.uid + '/profileImageUrl');
+                onValue(profileImageRef, (snapshot) => {
+                    const imageUrl = snapshot.val();
+                    if (imageUrl) setProfileImageUrl(imageUrl);
+                });
+            }
+        });
+    }, []);
     // Estado para controlar a exibição do dropdown
     const [showDropdown, setShowDropdown] = useState(false);
 
@@ -19,11 +36,11 @@ function NavBar() {
 
     return (
         <div className='barra-de-navegacao'>
-            
+
             <div className='Layout-NavBar'>
                 {/* Adiciona eventos de hover às guias */}
                 <div className='paginaInicial'>
-                    
+
                     <Link to='/perfil'>Página Inicial</Link>
                 </div>
 
@@ -88,7 +105,7 @@ function NavBar() {
             </div>
             <div className='login-register'>
                 <div className='login'>
-                    <Link to='/login '><img src={UsuarioFoto} alt='user-foto'></img></Link>
+                    <Link to='/login '><img src={profileImageUrl || UsuarioFoto} alt='user-foto'></img></Link>
                 </div>
             </div>
         </div>
