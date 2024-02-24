@@ -1,24 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-
-body {
-    font-family: 'K2D', sans-serif;
-}
-
 .layout-leftSide{
     display: flex;
     flex-direction: column;
-    background-color: darkred;
+    background-color: #2c2c2e; /* Ajustado para um cinza escuro */
     width: 30vw;
     height: 90vh;
     align-items: center;
-    border-right: 1px solid white;
+    border-right: 1px solid #ffffff; /* Mantido branco para contraste */
 }
 
 .layout-leftEngine{
@@ -26,19 +13,11 @@ body {
     flex-direction: row;
     width: 30vw;
     height: 50px;
-    background-color: darkblue;
+    background-color: #3a3a3c; /* Ajustado para um azul mais escuro e neutro */
     justify-content: space-between;
-}
-.img-left, .img-engine{
-    width: 45px;
-    height: 45px;
+    align-items: center;
 }
 
-
-.img-left img, .img-engine img{
-    width: 45px;
-    height: 45px;
-}
 
 .layout-imgPerfil{
     display: flex;
@@ -50,7 +29,7 @@ body {
 .imgPerfil{
     width: 250px;
     height: 250px;
-    background-color: aquamarine;
+    background-color: #48484a; /* Ajustado para um tom mais escuro */
     border-radius: 50%;
 }
 .imgPerfil img{
@@ -69,16 +48,46 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 170px;
+    width: 200px;
     height: 40px;
-    background-color: blueviolet;
+    background-color: #0077cc;; /* Ajustado para uma cor mais harmoniosa com o tema dark */
     margin: 10px;
-    border: 1px solid black;
+    border: 1px solid #4a4a4c; /* Ajustado para um contraste mais suave */
     border-radius: 50px;
     cursor: pointer;
     transition: 0.4s ease-in-out;
 }
 
 .btn-chooseImg:hover, .btn-changeImg:hover{
-    background-color: rgb(32, 10, 53);
+    background-color: #4a4a4c; /* Ajustado para um tom mais escuro ao passar o mouse */
+}
+
+.img-engine{
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+
+.img-engine img{
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease-in-out;
+    filter: drop-shadow(0px 0px 1.5px #ffff);
+}
+.img-engine img:hover{
+    transform: scale(1.2);
+}
+
+.img-left img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+    margin-left: 10px;
+    filter: drop-shadow(0px 0px 2px #ffff);
+    transition: transform 0.3s ease-in-out;
+}
+.img-left img:hover {
+    transform: scale(1.2);
 }

@@ -62,11 +62,6 @@ function NavBar() {
         <div className='barra-de-navegacao'>
 
             <div className='Layout-NavBar'>
-                {/* Adiciona eventos de hover às guias */}
-                <div className='paginaInicial'>
-
-                    <Link to='/perfil'>Página Inicial</Link>
-                </div>
 
                 <div className='explore' onMouseEnter={() => handleHover('explore')} onMouseLeave={handleLeave}>
                     Explore
@@ -114,7 +109,7 @@ function NavBar() {
                 {isUserLoggedIn ? (
                     <>
                         <div className='login'>
-                            <Link to='/login'>
+                            <Link to='/perfil'>
                                 <img className='perfil-Img' src={profileImageUrl || UsuarioFoto} alt='user-foto' />
                             </Link>
                         </div>
@@ -124,7 +119,7 @@ function NavBar() {
                     </>
                 ) : (
                     <div>
-                        <Link to='/registrar'>Crie</Link> ou <Link to='/login'>faça login</Link>
+                        <Link className='criar-conta' to='/registro'>Crie</Link> ou <Link className='logar-conta' to='/login'>faça login</Link>
                     </div>
                 )}
             </div>

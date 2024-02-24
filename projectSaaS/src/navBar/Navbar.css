@@ -31,8 +31,9 @@ body {
 .Layout-NavBar {
     display: flex;
     align-items: center;
-    width: 500px;
+    width: 400px;
     justify-content: space-between;
+    margin-left: 105px;
 }
 
 /* Ajustes para a imagem de perfil e logo */
@@ -141,6 +142,17 @@ a:hover {
 
 .perfil-Img:hover {
     transform: scale(1.05); /* Efeito de zoom leve ao passar o mouse */
+}
+
+.criar-conta, .logar-conta{
+    color: #43d4c6;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out, transform 0.3s ease;
+}
+.criar-conta:hover, .logar-conta:hover{
+    color: #1de7d3;
+    text-decoration:underline;
+    
 }
 
 /* Adaptações para responsividade e melhorias visuais podem ser adicionadas conforme necessário */

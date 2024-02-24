@@ -12,51 +12,60 @@ body {
 }
 
 .layout-rightSide {
-    width: 40vw;
-    display: flex;
-    flex-direction: column;
-    height: 90vh;
-    background-color: burlywood;
-    justify-content: space-around;
-    align-items: center;
+    background-color: #2c2c2e;
+    color: #ffffff;
+    padding: 20px;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .layout-info-rightSide {
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .layout-textInfo {
     display: flex;
-    flex-direction: row;
-    width: 325px;
-    height: 100px;
-    align-items: center;
-    background-color: coral;
-    justify-content: center;
+    margin-bottom: 10px;
 }
 
-.text-name,
-.text-email,
-.text-password {
-    width: 60px;
-    height: auto;
+.text-name, .text-email, .text-password {
+    font-weight: bold;
+    margin-right: 10px;
 }
 
-.layout-btn-deleteElogout{
+.text-name-logged, .text-email-logged, .text-password-logged {
+    color: #a1a1a6;
+}
+
+.layout-btn-deleteElogout {
     display: flex;
-    flex-direction: rox;
-
+    justify-content: space-around;
 }
 
-.btn-delete, .btn-logout{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 150px;
-    height: 40px;
-    background-color: blueviolet;
-    margin: 10px;
-    border: 1px solid black;
-    border-radius: 50px;
+.btn-delete, .btn-logout {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.btn-delete {
+    background-color: #ff453a; /* Vermelho para ação de excluir */
+    color: #ffffff;
+}
+
+.btn-delete:hover {
+    background-color: #d8372a;
+}
+
+.btn-logout {
+    background-color: #0a84ff; /* Azul para ação de sair */
+    color: #ffffff;
+}
+
+.btn-logout:hover {
+    background-color: #0077cc;
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import './leftSide.css';
 import Voltar from './left.png';
 import Engine from './engrenagem.png';
@@ -13,7 +14,7 @@ function LeftSide() {
     const [file, setFile] = useState(null);
     const [profileImageUrl, setProfileImageUrl] = useState(UserDefaultImg);
     const [userId, setUserId] = useState(null); // Armazena o userId
-   
+
     // Configurar listener para mudanças no estado de autenticação
     useEffect(() => {
         const auth = getAuth();
@@ -30,8 +31,8 @@ function LeftSide() {
     }, []);
 
     const fetchUserProfileImage = (userId) => {
-        const db = getDatabase();
-        const userProfileRef = databaseRef(db, `users/${userId}/profileImageUrl`);
+        const database = getDatabase();
+        const userProfileRef = databaseRef(database, `users/${userId}/profileImageUrl`);
         get(userProfileRef).then((snapshot) => {
             if (snapshot.exists()) {
                 setProfileImageUrl(snapshot.val());
@@ -75,8 +76,12 @@ function LeftSide() {
     return (
         <div className="layout-leftSide">
             <div className="layout-leftEngine">
-                <div className="img-left"><img src={Voltar} alt="voltar para a página inicial" /></div>
-                <div className="img-engine"><img src={Engine} alt="ir para a página de configuração de conta" /></div>
+                <div className="img-left">
+                    <Link to='/'><img src={Voltar} alt="voltar para a página inicial" /></Link>
+                </div>
+                <div className="img-engine">
+                    <Link to='/configPerfil'><img src={Engine} alt="ir para a página de configuração de conta" /></Link>
+                </div>
             </div>
 
             <div className="layout-imgPerfil">

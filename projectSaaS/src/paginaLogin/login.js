@@ -7,6 +7,7 @@ import GoogleIcon from '../google.png';
 import FacebookIcon from '../facebook.png';
 import LadoDireito from './ladoDireito/ladoDireito.js';
 import Retornar from './left.png';
+import Footer from '../footer/defaultFooter.js';
 import { ref, set } from 'firebase/database';
 
 const { auth, database, signInWithEmailAndPassword, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } = Firebase;
@@ -68,7 +69,7 @@ const Login = () => {
 
     return (
         <div className='todo-layout-logar'>
-
+<div className='content-left-logar'>
             <div className='logar'>
                 <div className='button-back-login'>
                     <Link to='/'><img src={Retornar} alt="Voltar" /></Link>
@@ -95,6 +96,8 @@ const Login = () => {
             </div>
 
             <LadoDireito />
+        </div>
+        <Footer/>
         </div>
     );
 };
