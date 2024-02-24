@@ -1,28 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import Firebase from '../../../firebase.js'; // Caminho ajustado para o seu arquivo de configuração do Firebase
+import Firebase from '../../../firebase.js'; // Ajuste para o caminho correto do seu Firebase
+import { ref, onValue } from 'firebase/database';
 import './rightSide.css';
 
 function RightSide() {
     const navigate = useNavigate();
-    const [user, setUser] = useState(null);
+    // Inicializa user como um objeto com propriedades name e email vazias
+    const [user, setUser] = useState({ name: '', email: '' });
 
     useEffect(() => {
-        // Assumindo que você tem uma função para obter o usuário atual em Firebase.js
-        const unsubscribe = Firebase.auth.onAuthStateChanged((user) => {
-            if (user) {
-                // Usuário está logado
-                setUser({
-                    name: user.displayName, // Ou qualquer campo que você utiliza para o nome
-                    email: user.email,
-                });
-            } else {
-                // Usuário não está logado, redireciona ou trata como achar melhor
-                navigate('/login');
-            }
-        });
-
-        return () => unsubscribe();
+        const userAuth = Firebase.auth.currentUser;
+        if (userAuth) {
+            // Observe que agora passamos `database` como o primeiro argumento para `ref`
+            const userRef = ref(Firebase.database, `users/${userAuth.uid}`);
+            onValue(userRef, (snapshot) => {
+                const userData = snapshot.val();
+                if (userData) {
+                    setUser({
+                        name: userData.userName ?? 'Nome não encontrado',
+                        email: userAuth.email,
+                    });
+                }
+            });
+        } else {
+            navigate('/login');
+        }
     }, [navigate]);
 
     const handleLogout = () => {
@@ -44,15 +47,14 @@ function RightSide() {
 
     return (
         <div className="layout-rightSide">
-            
             <div className="layout-info-rightSide">
                 <div className="layout-textInfo">
                     <div className="text-name">Nome:</div>
-                    <div className="text-name-logged">{user?.name || "Carregando..."}</div>
+                    <div className="text-name-logged">{user.name}</div>
                 </div>
                 <div className="layout-textInfo">
                     <div className="text-email">Email:</div>
-                    <div className="text-email-logged">{user?.email || "Carregando..."}</div>
+                    <div className="text-email-logged">{user.email}</div>
                 </div>
             </div>
 
