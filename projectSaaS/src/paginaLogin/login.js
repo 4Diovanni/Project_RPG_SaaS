@@ -7,8 +7,9 @@ import GoogleIcon from '../google.png';
 import FacebookIcon from '../facebook.png';
 import LadoDireito from './ladoDireito/ladoDireito.js';
 import Retornar from './left.png';
+import { ref, set } from 'firebase/database';
 
-const { auth, signInWithEmailAndPassword, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } = Firebase;
+const { auth, database, signInWithEmailAndPassword, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } = Firebase;
 
 const Login = () => {
     const navigate = useNavigate();
@@ -32,13 +33,26 @@ const Login = () => {
         const provider = new GoogleAuthProvider();
         try {
             const result = await signInWithPopup(auth, provider);
-            console.log('Usuário fez login com sucesso usando Google:', result.user);
+            // Extrai os dados do usuário do resultado
+            const user = result.user;
+
+            // Prepara os dados do usuário para serem salvos no Firebase Database
+            const userData = {
+                userName: user.displayName,
+                email: user.email,
+                profileImageUrl: user.photoURL
+            };
+
+            // Salva os dados do usuário no Firebase Database
+            await set(ref(Firebase.database, `users/${user.uid}`), userData);
+
+            console.log('Usuário fez login com sucesso usando Google:', user);
             navigate('/');
         } catch (error) {
             console.error('Erro ao fazer login com Google:', error.message);
             alert('Erro ao fazer login com Google:', error.message);
         }
-    }
+    };
 
     const handleFacebookLogin = async () => {
         const provider = new FacebookAuthProvider();

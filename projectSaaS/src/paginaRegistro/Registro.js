@@ -38,35 +38,35 @@ const Registro = () => {
                 console.log('Usuário registrado com data:', userData);
                 const userId = userCredential.user.uid; // O UID (userId) do usuário
                 console.log("Usuário criado com sucesso com ID:", userId);
-                //navigate('/'); // Redireciona o usuário para a página inicial ou dashboard após o registro
+                navigate('/'); // Redireciona o usuário para a página inicial ou dashboard após o registro
             })
             .catch((error) => {
                 console.error('Erro ao registrar o usuário:', error.message);
                 alert('Erro ao registrar o usuário: ' + error.message);
             });
 
-        // try {
-        //     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        //     const userData = {
-        //         userName: userName,
-        //         email: email,
-        //         // Remova a linha da senha para evitar armazenar a senha em texto puro
-        //     };
-        //     await set(ref(database, 'users/' + userCredential.user.uid), userData);
-        //     console.log('Usuário registrado com data:', userData);
-        //     console.log('Usuário registrado com sucesso:', userCredential.user);
-        //     navigate('/'); // Redireciona o usuário para a página inicial ou dashboard após o registro
-        // } catch (error) {
-        //     console.error('Erro ao registrar o usuário:', error.message);
-        //     alert('Erro ao registrar o usuário:', error.message);
-        // }
     }
 
     const handleGoogleRegister = async () => {
         try {
             const provider = new GoogleAuthProvider();
-            await signInWithPopup(auth, provider);
-            navigate('/');
+            const result = await signInWithPopup(auth, provider);
+            // Isso dá-lhe um token de acesso do Google. Você pode usá-lo para acessar a API do Google.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // As informações do usuário logado
+            const user = result.user;
+            
+            // Aqui você pode extrair as informações do usuário do objeto user e salvá-las no Firebase Database
+            const userData = {
+                userName: user.displayName, // O nome do usuário do Google
+                email: user.email, // O email do usuário do Google
+                profileImageUrl: user.photoURL // A URL da foto do perfil do usuário do Google
+            };
+            await set(ref(database, 'users/' + user.uid), userData);
+            console.log('Usuário registrado com Google e dados salvos:', userData);
+    
+            //navigate('/'); // Redireciona o usuário para a página inicial ou dashboard após o registro
         } catch (error) {
             console.error('Erro ao registrar com o Google:', error.message);
             alert('Erro ao registrar com o Google:', error.message);

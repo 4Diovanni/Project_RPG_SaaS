@@ -1,3 +1,4 @@
+/* Reset básico e estilos globais */
 * {
     margin: 0;
     padding: 0;
@@ -5,257 +6,141 @@
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    box-sizing: border-box; /* Garante que padding e border não aumentem a caixa */
 }
 
-/* Fonte padrão para toda a página */
+/* Estilo dark mode global */
 body {
+    background-color: #121212; /* Cor de fundo escura */
     font-family: 'K2D', sans-serif;
+    color: #E0E0E0; /* Cor do texto claro */
 }
 
 .barra-de-navegacao {
     display: flex;
-    background: #0D0D0D;
-    width: auto;
+    background: #1E1E1E; /* Mais escuro que o body */
+    width: 100%;
     height: 70px;
     padding: 0 20px;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    position: relative;
+    z-index: 10; /* Alterado para space-between para melhor distribuição */
 }
 
 .Layout-NavBar {
     display: flex;
     align-items: center;
-    width: 600px;
-    justify-content: space-around;
+    width: 500px;
+    justify-content: space-between;
 }
 
-.logo img {
-    filter: drop-shadow(0px 4px 20px rgba(255, 0, 0, 0.787));
+/* Ajustes para a imagem de perfil e logo */
+.logo img,
+.perfil-Img {
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
+    width: auto;
+    height: auto;
+    max-width: 120px; /* Limita o tamanho da logo */
+    border-radius: 50%; /* Circular para a imagem do perfil */
 }
 
-.logo-image-inicial {
-    width: 120px;
-    height: 90px;
+/* Estilização dos links da barra de navegação */
+a {
+    color: #E0E0E0;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
 }
 
-.paginaInicial {
+a:hover {
+    color: #FFFFFF;
+}
+
+/* Botões e itens da navegação */
+.paginaInicial, .explore, .mecanicas, .locais, .comunidade {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 40px;
-    width: 110px;
+    padding: 0 10px;
     border-radius: 10px;
-    background: #6C0A0A;
+    background: #333333; /* Mais claro que o background da barra */
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.paginaInicial a {
-    color: white;
-    /* Cor padrão do texto */
-    font-size: 14px;
-    /* Tamanho padrão da fonte */
-    text-decoration: none;
-    /* Remova a decoração padrão do texto */
-    transition: 0.3s ease-in-out;
-    /* Adicione a transição aqui */
+.paginaInicial:hover, .explore:hover, .mecanicas:hover, .locais:hover, .comunidade:hover, .login:hover, .register:hover {
+    background-color: #4A4A4A; /* Cor de hover */
+    transform: translateY(-2px); /* Leve elevação ao passar o mouse */
 }
 
-.paginaInicial a:hover {
-    color: white;
-    /* Cor ao passar o mouse */
-    font-size: 16px;
-    /* Tamanho da fonte ao passar o mouse */
-    text-decoration: none;
-    /* Remova a decoração do texto ao passar o mouse */
-}
-
-.paginaInicial:hover {
-    background-color: #b01212;
-}
-
-
-.explore,
-.mecanicas,
-.locais,
-.comunidade {
-    height: 40px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    width: 90px;
-    border-radius: 10px;
-    background: #2F2F2F;
-    cursor: pointer;
-    color: white;
-    transition: 0.3s ease;
-    font-size: 14px;
-}
-
-.explore a:hover,
-.mecanicas a:hover,
-.locais a:hover,
-.comunidade a:hover {
-    font-size: 16px;
-
-}
-
-
-.explore:hover,
-.mecanicas:hover,
-.locais:hover,
-.comunidade:hover {
-    background-color: #505050;
-
-    /* Cor mais clara no hover */
-    /* Adiciona o cursor apenas nas guias principais */
-}
-
+/* Estilos para os dropdowns */
 .dropdown {
-
-    background-color: #3B3B3B;
-    z-index: 1;
-    opacity: 0;
-    border-radius: 4px;
-    transition: opacity 0.3s ease-in-out;
+    display: none; /* Inicialmente escondido, mostrado pelo React */
     position: absolute;
+    background-color: #2E2E2E;
+    border-radius: 8px;
+    padding: 5px;
     top: 100%;
-    /* Posiciona o dropdown no meio verticalmente */
     left: 50%;
-    /* Posiciona o dropdown no meio horizontalmente */
-    transform: translate(-50%, 0);
-    /* Move o dropdown de volta 50% da sua própria largura */
-    width: 140px;
-
-}
-
-.dropdown a {
-    text-decoration: none;
-    color: white;
-    transition: 0.3s ease;
-    height: 32px;
-    width: 130px;
+    transform: translateX(-50%);
+    z-index: 10; /* Garante que fique acima de outros itens */
 }
 
 .dropdown ul {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
     list-style: none;
-    padding: 0;
-    margin: 0;
-
-    /* Adicione esta linha para remover a margem padrão da lista */
+    display: flex; /* Habilita flexbox */
+    flex-direction: column; /* Itens em coluna */
+    align-items: center; /* Centraliza horizontalmente (no eixo cruzado) */
+    width: 100%; /* Ocupa toda a largura do container .dropdown */
 }
 
 .dropdown ul li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 10px;
+    transition: background-color 0.3s ease;
     text-align: center;
-    height: 32px;
-    width: 130px;
-    margin: 5px 0;
-    border-radius: 10px;
-    cursor: pointer;
-
-    /* Adicione esta linha para adicionar o cursor pointer nas opções */
-
-    /* Adicione esta linha para suavizar a transição da cor de fundo */
-
+    min-width: 150px; /* Largura mínima */
+    min-height: 40px; /* Altura mínima */
+    display: flex; /* Usando flexbox para alinhamento interno */
+    align-items: center; /* Centraliza verticalmente o conteúdo do item */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo do item */
 }
 
-/* Adiciona um estilo para a opção selecionada */
-.dropdown ul li.selected {
-    background-color: rgb(42, 73, 99);
 
-}
-
-/* Adiciona hover nas opções do dropdown */
 .dropdown ul li:hover {
-    background-color: #494949;
-
-
+    background-color: #424242; /* Cor de hover dentro do dropdown */
 }
 
-/* Adiciona um pequeno atraso ao hover no dropdown */
-.dropdown:hover {
-    opacity: 1;
-    transition-delay: 0.3s;
-}
-
-
-.explore:hover .dropdown,
-.mecanicas:hover .dropdown,
-.locais:hover .dropdown,
-.comunidade:hover .dropdown {
-    opacity: 1;
-    transition-delay: 0.3s;
-
-}
-
-.login-register {
+/* Melhorias para login e registro */
+.login-profile {
     display: flex;
-    align-items: center;
-}
-
-.register {
-    display: flex;
-    width: 100px;
-    height: 40px;
     align-items: center;
     justify-content: center;
-    border: 1px solid #000;
-    background: #121238;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    border-radius: 10px;
+    gap: 10px; /* Espaçamento entre elementos, se houver mais de um */
 }
 
 .login {
-    display: flex;
-    width: 50px;
-    height: 50px;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #000;
-    background: #ffffff;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
     border-radius: 50px;
-}
-
-.register a,
-.login a {
-    font-size: 14px;
+    background: #333333; /* Mais claro que o background da barra */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
     display: flex;
-    text-decoration: none;
-    color: white;
-    transition: 0.3s ease-in-out;
-    width: 121px;
-    height: 42px;
     align-items: center;
     justify-content: center;
 }
 
-.register a:hover,
-.login a:hover {
-    font-size: 16px;
-    text-decoration: none;
-    color: white;
-
+.perfil-Img {
+    width: 50px; /* Ajuste conforme necessário */
+    height: 50px; /* Mantém a imagem quadrada */
+    border-radius: 50%; /* Torna a imagem redonda */
+    object-fit: cover; /* Garante que a imagem cubra todo o espaço sem distorção */
+    cursor: pointer; /* Indica que é clicável */
+    transition: transform 0.2s ease-in-out; /* Animação suave ao interagir */
 }
 
-.register:hover,
-.login:hover {
-
-    background-color: #4a4ec2;
-
+.perfil-Img:hover {
+    transform: scale(1.05); /* Efeito de zoom leve ao passar o mouse */
 }
 
-.login img{
-    width: 38px;
-    height: 38px;
-}
+/* Adaptações para responsividade e melhorias visuais podem ser adicionadas conforme necessário */
