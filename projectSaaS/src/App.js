@@ -11,6 +11,7 @@ import Login from './paginaLogin/login.js'
 import PaginaLore from './paginaLore/paginaLore.js';
 import PaginaPerfil from './paginaPerfil/paginaPerfil.js';
 import ConfigPerfil from './paginaPerfil/configAccount/config.js';
+import PaginaFicha from './paginaFicha/Ficha.js';
 
 
 
@@ -29,6 +30,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/perfil' element={<PaginaPerfil />} />
           <Route path='/configPerfil' element={<ConfigPerfil />} />
+          <Route path='/ficha' element={<PaginaFicha />} />
         </Routes>
       </div>
     </Router>

@@ -13,11 +13,10 @@ function PaginaInicial() {
         <NavBar />
       </div>
       <Painels />
-      <Vitrine />
-      <KieMagia />
-      <div className='footer'>
+      
+      {/* <div className='footer'>
         <Footer />
-      </div>
+      </div> */}
     </div>
   );
 }

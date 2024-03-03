@@ -1,0 +1,28 @@
+.painels {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+
+  height: 100vh;
+}
+
+.image-site {
+  overflow: hidden;
+  /* Para garantir que a animação da imagem não exceda o espaço */
+}
+
+.logo-image-painel {
+  max-width: 100%;
+  /* Garante responsividade */
+  transition: transform 1s;
+  /* Suaviza a transição */
+}
+
+.about-site-text {
+  opacity: 0;
+  /* Inicia invisível */
+  transition: opacity 1s ease-in-out;
+  /* Suaviza a transição */
+}

@@ -1,0 +1,10 @@
+.all-layout-ficha {
+    display: flex;
+    flex-direction: column;
+    color: #e0e0e0; /* Texto mais claro para contraste */
+}
+
+
+
+
+

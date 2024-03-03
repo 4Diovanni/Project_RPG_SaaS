@@ -1,0 +1,18 @@
+.layout-container-2a {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333; /* Fundo mais escuro */
+    height: 78vh;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.img-ficha-box,
+.descricao-box {
+    width: 280px;
+    height: 280px;
+    background-color: #555; /* Tons mais escuros */
+    border: 1px solid #12120f;
+}

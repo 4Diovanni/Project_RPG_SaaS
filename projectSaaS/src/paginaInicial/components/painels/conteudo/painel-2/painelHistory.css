@@ -1,0 +1,35 @@
+.painelHistory {
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.content {
+    background: rgba(0, 0, 0, 0.5);
+    /* Fundo escuro semi-transparente para melhor leitura do texto */
+    padding: 20px;
+    border-radius: 10px;
+    /* Borda arredondada para o contêiner do conteúdo */
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Espaçamento entre as imagens */
+    margin-top: 20px;
+    /* Espaço entre o texto e as imagens */
+}
+
+.images img {
+    max-width: 100px;
+    /* Ajuste o tamanho das imagens conforme necessário */
+    border-radius: 10px;
+    /* Borda arredondada para as imagens */
+}

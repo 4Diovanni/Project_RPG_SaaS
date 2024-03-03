@@ -66,7 +66,7 @@ function NavBar() {
                 <div className='explore' onMouseEnter={() => handleHover('explore')} onMouseLeave={handleLeave}>
                     Explore
                     <DropdownMenu id="explore">
-                        <li><Link to='/'>Ficha</Link></li>
+                        <li><Link to='/ficha'>Ficha</Link></li>
                         <li><Link to='/paginaLore'>Lore</Link></li>
                         <li><Link to='/paginaCombate'>Combate</Link></li>
                         <li><Link to='/'>PatchNotes</Link></li>

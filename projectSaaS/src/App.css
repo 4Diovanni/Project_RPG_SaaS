@@ -6,4 +6,8 @@
     font: inherit;
     vertical-align: baseline;
     font-family: 'K2D', sans-serif; 
+    
+}
+html {
+    scroll-behavior: smooth;
 }

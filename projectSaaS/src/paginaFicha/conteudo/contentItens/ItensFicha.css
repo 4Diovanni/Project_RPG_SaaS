@@ -1,0 +1,18 @@
+.layout-container-3b {
+    display: flex;
+    padding: 20px;
+    background-color: #6c6f00; /* Amarelo escuro/mostarda */
+    justify-content: space-around;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+}
+
+.habilidades-box,
+.itens-box,
+.pericias-box {
+    width: 370px;
+    height: 520px;
+    background-color: #911d1d; /* Vermelho escuro */
+    border: 2px solid rgb(0, 0, 0);
+}
