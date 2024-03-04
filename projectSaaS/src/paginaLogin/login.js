@@ -69,35 +69,35 @@ const Login = () => {
 
     return (
         <div className='todo-layout-logar'>
-<div className='content-left-logar'>
-            <div className='logar'>
-                <div className='button-back-login'>
-                    <Link to='/'><img src={Retornar} alt="Voltar" /></Link>
-                </div>
-                <h1 className='texto-titulo-logar'>Login<div className='linha'></div></h1>
-                <form onSubmit={handleSubmit} className='layout-forms'>
-                    <FormField label='E-mail' type='email' placeholder='E-mail' value={email} onChange={setEmail} />
-                    <FormField label='Password' type='password' placeholder='Password' value={password} onChange={setPassword} />
-                    <div className='layout-botao'>
-                        <button type='submit' className='botao'>Login</button>
-                        <div className='link-botao-esquecer'><Link to='/'><p className='paragrafo-botao-esquecer'> Esqueceu a senha?</p></Link></div>
+            <div className='content-left-logar'>
+                <div className='logar'>
+                    <div className='button-back-login'>
+                        <Link to='/'><img src={Retornar} alt="Voltar" /></Link>
                     </div>
-                    <div className='rede-sociais'>
-                        <div className='rede-sociais-layout'>
-                            <div className='google-button' onClick={handleGoogleLogin}>
-                                <img className='google-image' src={GoogleIcon} alt='Google Icon' /></div>
-                            <div className='facebook-button' onClick={handleFacebookLogin}>
-                                <img className='facebook-image' src={FacebookIcon} alt='Facebook Icon' /></div>
+                    <h1 className='texto-titulo-logar'>Login<div className='linha'></div></h1>
+                    <form onSubmit={handleSubmit} className='layout-forms'>
+                        <FormField label='E-mail' type='email' placeholder='E-mail' value={email} onChange={setEmail} />
+                        <FormField label='Password' type='password' placeholder='Password' value={password} onChange={setPassword} />
+                        <div className='layout-botao'>
+                            <button type='submit' className='botao'>Login</button>
+                            <div className='link-botao-esquecer'><Link to='/'><p className='paragrafo-botao-esquecer'> Esqueceu a senha?</p></Link></div>
                         </div>
-                        <div className='linha'></div>
-                    </div>
-                </form>
-                <p className='registro-link'>Se você não tem uma conta, <Link to='/registro'>crie uma aqui</Link>.</p>
-            </div>
+                        <div className='rede-sociais'>
+                            <div className='rede-sociais-layout'>
+                                <div className='google-button' onClick={handleGoogleLogin}>
+                                    <img className='google-image' src={GoogleIcon} alt='Google Icon' /></div>
+                                <div className='facebook-button' onClick={handleFacebookLogin}>
+                                    <img className='facebook-image' src={FacebookIcon} alt='Facebook Icon' /></div>
+                            </div>
+                            <div className='linha'></div>
+                        </div>
+                    </form>
+                    <p className='registro-link'>Se você não tem uma conta, <Link to='/registro'>crie uma aqui</Link>.</p>
+                </div>
 
-            <LadoDireito />
-        </div>
-        <Footer/>
+                <LadoDireito />
+            </div>
+            <Footer />
         </div>
     );
 };

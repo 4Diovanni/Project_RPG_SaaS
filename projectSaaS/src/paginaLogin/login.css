@@ -16,6 +16,12 @@ body {
 .todo-layout-logar {
     display: flex;
     height: 100vh;
+    flex-direction: column;
+}
+
+.content-left-logar{
+    display: flex;
+    flex-direction: row;
 }
 
 /* Botão de retorno */
@@ -120,8 +126,8 @@ body {
     padding: 10px;
     border-radius: 50px;
     cursor: pointer;
-    width: 7vw;
-    height: 3vh;
+    width: 10vw;
+    height: 6vh;
     margin: 5px;
 }
 
