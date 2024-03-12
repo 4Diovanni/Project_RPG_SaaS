@@ -1,18 +1,94 @@
 .layout-container-2a {
     display: flex;
-    justify-content: space-around;
-    background-color: #333; /* Fundo mais escuro */
+    justify-content: space-evenly;
+    background-color: #333;
     height: 78vh;
     width: 100%;
     align-items: center;
-    justify-content: space-around;
+    
     flex-direction: row;
 }
 
-.img-ficha-box,
+
 .descricao-box {
-    width: 280px;
-    height: 280px;
-    background-color: #555; /* Tons mais escuros */
+    width: 600px;
+    height: 420px;
+    background-color: #242424;
     border: 1px solid #12120f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image-section {
+    width: 420px;
+    display: flex;
+    height: 420px;
+    background-color: #242424;
+    border: 1px solid #12120f;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.img-ficha-box {
+    width: 300px;
+    height: 300px;
+    background-color: #b3b3b3;
+    /* Tons mais escuros */
+    border: 2px solid #12120f;
+}
+
+.btns-flex {
+    display: flex;
+    width: 400px;
+    justify-content: center;
+    height: 90px;
+}
+
+.btn-alter,
+.btn-choose {
+    background-color: #14d0d7;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    color: black;
+    margin: 20px;
+    width: 170px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-alter:hover,
+.btn-choose:hover {
+    background-color: #14a6d7;
+    font-size: 17px;
+}
+
+.character-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 510px;
+    height: 280px;
+    background-color: #55555569;
+    border-radius: 20px;
+
+}
+.character-field{
+    display: flex;
+    width: 420px;
+    background-color: #b1b1b100;
+    height: 100px;
+    align-items: center;
+}
+.character-story{
+    display: flex;
+    background-color: #9b9b9b59;
+    width: 510px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    border: 2px solid black;
 }
